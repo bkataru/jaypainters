@@ -14,12 +14,13 @@ import {
 
 const description = SITE_DESCRIPTION;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const siteRoot = new URL("/", Astro.site).href;
 const schema = {
   "@context": "https://schema.org",
   "@type": "HousePainter",
   name: "Jay Painters",
   description,
-  url: "https://jaypainters.surge.sh/",
+  url: siteRoot,
   telephone: PHONE_E164,
   foundingDate: String(SINCE_YEAR),
   address: {
@@ -49,7 +50,7 @@ const schema = {
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Jay Painters" />
-    <meta property="og:image" content="https://jaypainters.surge.sh/og.jpg" />
+    <meta property="og:image" content={new URL("/og.jpg", Astro.site).href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Freshly painted building exterior by Jay Painters" />

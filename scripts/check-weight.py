@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DIST = os.path.join(ROOT, "dist")
 IMAGE_MAX = 150 * 1024
 CLIP_MAX = 3 * 1024 * 1024
-FIRST_VIEW_MAX = 275 * 1024
+FIRST_VIEW_MAX = 250 * 1024
 
 failed = False
 
@@ -69,15 +69,20 @@ try:
 except OSError:
     fail("could not read src/data/site.ts")
 
-# First-view budget: html + css + fonts + hero webp.
+# First-view budget: html + css + preloaded fonts + hero webp. Only the
+# latin faces are preloaded; latin-ext loads on demand, so it is not
+# first-view bytes.
 try:
+    html = open(os.path.join(DIST, "index.html"), encoding="utf8").read()
+    preloaded = re.findall(r'rel="preload" href="/fonts/([^"]+\.woff2)"', html)
+    if not preloaded:
+        fail("no preloaded fonts found in dist/index.html")
     total = os.path.getsize(os.path.join(DIST, "index.html"))
     for f in os.listdir(os.path.join(DIST, "_astro")):
         if f.endswith(".css"):
             total += os.path.getsize(os.path.join(DIST, "_astro", f))
-    for f in os.listdir(os.path.join(DIST, "fonts")):
-        if f.endswith(".woff2"):
-            total += os.path.getsize(os.path.join(DIST, "fonts", f))
+    for f in preloaded:
+        total += os.path.getsize(os.path.join(DIST, "fonts", f))
     total += os.path.getsize(os.path.join(DIST, "gallery-webp", "hero-finished-exterior.webp"))
     print(f"first-view total {total} bytes")
     if total > FIRST_VIEW_MAX:

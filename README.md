@@ -52,8 +52,10 @@ Tooling installed for these: `htmlhint`, `html-validate`, `stylelint` with
 ## Regenerating WebP variants
 
 `python scripts/make-webp.py` rebuilds `public/gallery-webp/` from
-`public/gallery/`. It re-encodes any variant that comes out larger than its
-JPEG, so WebP is always the smaller file.
+`public/gallery/`. WebP is used unconditionally via `<source>` and is
+usually smaller; it aborts on a 0-byte variant. One file
+(`local-exterior-building-01`) saves almost nothing because the JPEG is
+already WhatsApp-compressed.
 
 ## Editing content
 
@@ -75,7 +77,9 @@ value, rebuild, redeploy. Captions must describe what is visible in the photo.
 - Production: `jaypainters.surge.sh` (reserved 2026-11-07 under
   baalateja.k@gmail.com).
 - Backup: `jay-painters-blr.surge.sh`. Switch rule: use only if the primary
-  name is lost; update `astro.config.mjs`, `public/CNAME`, and this file.
+  name is lost; update `astro.config.mjs` (`site`, which drives canonical,
+  JSON-LD url, and og:image), `public/CNAME`, `public/robots.txt` (Sitemap
+  line), `public/sitemap.xml` (`loc`), and this file.
 
 ## Surge quotas
 

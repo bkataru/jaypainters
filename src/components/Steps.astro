@@ -15,16 +15,16 @@ const STEPS = [
   {
     n: "3",
     title: "Crew arrives",
-    body: "Two to four painters on site, with Anthony. You check the finish before he takes payment.",
+    body: "A crew is assigned, Anthony works on site, and you check the finish.",
   },
 ];
 ---
 
-<section class="steps-section" id="how-it-works">
+<section class="steps-section" id="how-it-works" tabindex="-1">
   <div class="wrap">
     <p class="section-kicker">How it works</p>
     <h2>Three steps to a finished job</h2>
-    <p class="section-lead">One call starts it. A site visit is free.</p>
+    <p class="section-lead">One call starts it.</p>
     <ol class="steps" role="list">
       {STEPS.map((s) => (
         <li>
