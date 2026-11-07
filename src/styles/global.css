@@ -120,25 +120,6 @@ video:focus-visible {
   border-radius: 6px;
 }
 
-@media (width <= 399px) {
-  .hero-stats {
-    gap: 16px 24px;
-  }
-
-  .hero-stat b {
-    font-size: 22px;
-  }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .btn-row {
-    gap: 10px;
-  }
-}
-
 .wrap {
   max-width: 1120px;
   margin: 0 auto;
@@ -932,5 +913,26 @@ section {
 
   .site-footer {
     padding-bottom: 28px;
+  }
+}
+
+/* Extra-narrow phones: base rules above are overridden here, so this
+   block must stay last in the file. */
+@media (width <= 399px) {
+  .hero-stats {
+    gap: 16px 24px;
+  }
+
+  .hero-stat b {
+    font-size: 22px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-row {
+    gap: 10px;
   }
 }
