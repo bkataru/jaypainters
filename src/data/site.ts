@@ -56,8 +56,8 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   },
   {
     title: "Wood and polish",
-    items: ["Doors", "Furniture", "Polish"],
-    typical: "Doors and frames brought back to shine",
+    items: ["Doors", "Furniture", "PU polish", "Polish"],
+    typical: "Doors and frames in PU or classic polish",
     prefill: "Hi Jay Painters, I need wood polish work.",
   },
   {
