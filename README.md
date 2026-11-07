@@ -15,6 +15,10 @@ npm install
 npm run build
 node scripts/check-weight.mjs
 npm run check
+npm run lint:html
+npm run validate:html
+npm run lint:css
+npx prettier --check "src/**/*.{astro,ts,css}"
 SURGE_TOKEN=... npx surge@latest ./dist jaypainters.surge.sh --preview
 npx surge@latest jaypainters.surge.sh cutover <rev>
 npx surge@latest jaypainters.surge.sh rollback
@@ -23,6 +27,33 @@ npx surge@latest jaypainters.surge.sh status
 ```
 
 Preview first; bkataru approves the preview URL; then cut over to production.
+
+## Quality gates
+
+All nine must pass before a publish:
+
+| Gate | Command |
+| --- | --- |
+| Build | `npm run build` |
+| Type and template check | `npm run check` |
+| HTML rules | `npm run lint:html` |
+| HTML5 conformance | `npm run validate:html` |
+| CSS rules | `npm run lint:css` |
+| Formatting | `npx prettier --check "src/**/*.{astro,ts,css}"` |
+| Weight and freshness budget | `node scripts/check-weight.mjs` |
+| Contact links | grep `tel:` and `wa.me` counts in `dist/index.html` |
+| Preview render | fetch the preview URL and read the text |
+
+Tooling installed for these: `htmlhint`, `html-validate`, `stylelint` with
+`stylelint-config-standard`, `prettier` with `prettier-plugin-astro`.
+`.prettierignore` keeps vendored skills, the JustDial dump, assets, and
+`dist/` out of formatting.
+
+## Regenerating WebP variants
+
+`python scripts/make-webp.py` rebuilds `public/gallery-webp/` from
+`public/gallery/`. It re-encodes any variant that comes out larger than its
+JPEG, so WebP is always the smaller file.
 
 ## Editing content
 
