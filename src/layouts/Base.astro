@@ -1,6 +1,15 @@
 ---
 import "../styles/global.css";
-import { HEAD_TITLE, THEME_COLOR, ADDRESS, LAT, LNG, HOURS_SHORT, SINCE_YEAR } from "../data/site";
+import {
+  HEAD_TITLE,
+  THEME_COLOR,
+  ADDRESS,
+  LAT,
+  LNG,
+  HOURS_SCHEMA,
+  PHONE_E164,
+  SINCE_YEAR,
+} from "../data/site";
 
 interface Props {
   title?: string;
@@ -15,7 +24,7 @@ const schema = {
   name: "Jay Painters",
   description,
   url: "https://jaypainters.surge.sh/",
-  telephone: "+91 97316 70742",
+  telephone: PHONE_E164,
   foundingDate: String(SINCE_YEAR),
   address: {
     "@type": "PostalAddress",
@@ -25,7 +34,7 @@ const schema = {
     addressCountry: "IN",
   },
   geo: { "@type": "GeoCoordinates", latitude: LAT, longitude: LNG },
-  openingHours: `Mo-Su ${HOURS_SHORT}`,
+  openingHours: HOURS_SCHEMA,
   areaServed: ["Ulsoor", "Bangalore", "Chennai", "Hyderabad"],
 };
 ---

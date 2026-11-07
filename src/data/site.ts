@@ -3,10 +3,12 @@
 
 export const PHONE_DISPLAY = "+91\u00A097316\u00A070742";
 export const PHONE_TEL = "tel:+919731670742";
+export const PHONE_E164 = "+919731670742";
 export const WA_BASE = "https://wa.me/919731670742?text=";
 
 export const HOURS_SHORT = "7 AM–9 PM";
 export const HOURS_LONG = "07:00–21:00";
+export const HOURS_SCHEMA = "Mo-Su 07:00-21:00";
 export const HOURS_NOTE = "Replies 7 AM–9 PM, WhatsApp anytime";
 export const HOURS_LABEL = "7 AM–9 PM · Replies 7 AM–9 PM, WhatsApp anytime";
 
@@ -71,6 +73,8 @@ export interface GalleryEntry {
   caption: string;
   width: number;
   height: number;
+  hero?: boolean;
+  featured?: boolean;
 }
 
 export const GALLERY: GalleryEntry[] = [
@@ -79,6 +83,7 @@ export const GALLERY: GalleryEntry[] = [
     caption: "Finished exterior, Bangalore",
     width: 750,
     height: 1000,
+    hero: true,
   },
   {
     file: "local-interior-texture-01.jpg",
@@ -121,6 +126,7 @@ export const GALLERY: GalleryEntry[] = [
     caption: "Crew painting exterior",
     width: 750,
     height: 1000,
+    hero: true,
   },
   { file: "local-wood-polish-01.jpg", caption: "Wood polish work", width: 864, height: 1152 },
   {
@@ -141,12 +147,14 @@ export const GALLERY: GalleryEntry[] = [
     caption: "Finished apartments, exterior",
     width: 900,
     height: 1200,
+    featured: true,
   },
   {
     file: "jd-white-building-01.jpg",
     caption: "White building exterior",
     width: 900,
     height: 1200,
+    featured: true,
   },
   {
     file: "jd-yellow-exterior-01.jpg",
@@ -159,6 +167,7 @@ export const GALLERY: GalleryEntry[] = [
     caption: "Commercial block, scaffold work",
     width: 900,
     height: 1200,
+    hero: true,
   },
   { file: "jd-materials-01.jpg", caption: "Paints and tools on site", width: 900, height: 1200 },
 ];

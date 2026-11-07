@@ -1,7 +1,9 @@
 ---
 import { GALLERY, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
 
-const [first, second, ...rest] = GALLERY;
+const shown = GALLERY.filter((g) => !g.hero);
+const featured = shown.filter((g) => g.featured);
+const rest = shown.filter((g) => !g.featured);
 ---
 
 <section id="gallery" class="gallery-section" aria-label="Gallery">
@@ -13,7 +15,7 @@ const [first, second, ...rest] = GALLERY;
       open it full size.
     </p>
     <div class="gallery-feature">
-      {[first, second].map((g) => (
+      {featured.map((g) => (
         <figure>
           <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
             <picture>
