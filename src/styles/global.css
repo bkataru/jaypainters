@@ -929,6 +929,13 @@ section {
   color: var(--color-inverse-link);
 }
 
+/* Separator between inline links. A styled span, not a bare text node:
+   Astro strips inter-element whitespace, which glued the dots to the
+   links. Spacing here survives any minifier. */
+.link-sep {
+  margin: 0 6px;
+}
+
 .pin-icon {
   vertical-align: -3px;
 }
