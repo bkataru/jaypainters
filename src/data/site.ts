@@ -1,7 +1,7 @@
 // Single content data file. Every fact and label lives here; components
 // import from here and never hard-code phone, hours, or addresses.
 
-export const PHONE_DISPLAY = "+91 97316 70742";
+export const PHONE_DISPLAY = "+91\u00A097316\u00A070742";
 export const PHONE_TEL = "tel:+919731670742";
 export const WA_BASE = "https://wa.me/919731670742?text=";
 

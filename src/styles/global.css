@@ -367,23 +367,6 @@ section {
   min-height: 64px;
 }
 
-@media (width <= 639px) {
-  .site-header .wrap {
-    flex-wrap: wrap;
-    padding-top: 8px;
-    padding-bottom: 8px;
-  }
-
-  .site-nav a {
-    padding: 8px;
-    font-size: 14px;
-  }
-
-  .logo {
-    font-size: 18px;
-  }
-}
-
 .logo {
   font-family: var(--font-display);
   font-weight: 800;
@@ -436,6 +419,37 @@ section {
   color: #fff;
   font-weight: 600;
   margin-left: 4px;
+}
+
+/* Narrow screens: drop the anchor nav (the sticky bar carries Call and
+   WhatsApp) so the header stays a single clean row. Placed after the base
+   rules so these declarations win. */
+@media (width <= 639px) {
+  .site-header .wrap {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+
+  .site-header .logo {
+    font-size: 18px;
+  }
+
+  .site-header .logo-mark {
+    width: 60px;
+    height: 5px;
+  }
+
+  .site-nav a:not(.nav-call) {
+    display: none;
+  }
+
+  .site-nav a.nav-call {
+    min-height: 40px;
+    padding: 0 18px;
+    font-size: 15px;
+    margin-left: 0;
+  }
 }
 
 .site-nav .nav-call:hover {
@@ -855,7 +869,7 @@ section {
 .site-footer nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 32px;
+  min-height: 40px;
   color: var(--color-muted-foreground);
   text-decoration: none;
   font-size: 14px;

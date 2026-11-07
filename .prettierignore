@@ -1,0 +1,8 @@
+dist/
+node_modules/
+.astro/
+.agents/
+justdial/
+assets/
+public/
+package-lock.json
