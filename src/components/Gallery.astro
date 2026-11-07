@@ -6,18 +6,23 @@ const featured = shown.filter((g) => g.featured);
 const rest = shown.filter((g) => !g.featured);
 ---
 
-<section id="gallery" class="gallery-section" aria-label="Gallery">
+<section id="gallery" class="gallery-section" aria-label="Gallery" tabindex="-1">
   <div class="wrap">
     <p class="section-kicker">Proof of work</p>
     <h2>Past work</h2>
     <p class="section-lead">
-      Real sites across Bangalore: finished exteriors, interiors, and crews at work. Tap a photo to
-      open it full size.
+      Real sites across Bangalore: finished exteriors, interiors, and painters at work.
     </p>
     <div class="gallery-feature">
       {featured.map((g) => (
         <figure>
-          <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
+          <a
+            class="tile"
+            href={`/gallery/${g.file}`}
+            target="_blank"
+            rel="noopener"
+            aria-label={`Open the full photo: ${g.caption}`}
+          >
             <picture>
               <source
                 srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`}
@@ -25,7 +30,7 @@ const rest = shown.filter((g) => !g.featured);
               />
               <img
                 src={`/gallery/${g.file}`}
-                alt={g.caption}
+                alt=""
                 width={g.width}
                 height={g.height}
                 loading="lazy"
@@ -40,7 +45,13 @@ const rest = shown.filter((g) => !g.featured);
     <div class="gallery-grid">
       {rest.map((g) => (
         <figure>
-          <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
+          <a
+            class="tile"
+            href={`/gallery/${g.file}`}
+            target="_blank"
+            rel="noopener"
+            aria-label={`Open the full photo: ${g.caption}`}
+          >
             <picture>
               <source
                 srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`}
@@ -48,7 +59,7 @@ const rest = shown.filter((g) => !g.featured);
               />
               <img
                 src={`/gallery/${g.file}`}
-                alt={g.caption}
+                alt=""
                 width={g.width}
                 height={g.height}
                 loading="lazy"
@@ -66,7 +77,9 @@ const rest = shown.filter((g) => !g.featured);
       </a>
       <a
         class="btn btn-wa"
-        href={waLink("Hi Jay Painters, I saw your past work and need painting.")}
+        href={waLink("Hi Jay Painters, I saw your past work. I need painting in ____.")}
+        target="_blank"
+        rel="noopener"
       >
         WhatsApp about a job like these
       </a>

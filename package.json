@@ -10,7 +10,7 @@
     "lint:html": "htmlhint dist/index.html dist/404.html",
     "validate:html": "html-validate dist/index.html dist/404.html",
     "lint:css": "stylelint \"src/styles/*.css\"",
-    "format": "prettier --write ."
+    "format": "prettier --write \"src/**/*.{astro,ts,css}\""
   },
   "dependencies": {
     "astro": "^7.4"

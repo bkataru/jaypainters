@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import {
   HEAD_TITLE,
+  SITE_DESCRIPTION,
   THEME_COLOR,
   ADDRESS,
   LAT,
@@ -11,13 +12,8 @@ import {
   SINCE_YEAR,
 } from "../data/site";
 
-interface Props {
-  title?: string;
-}
-
-const { title = HEAD_TITLE } = Astro.props;
-const description =
-  "Jay Painters — house and building painters in Ulsoor, Bangalore since 1980. Call or WhatsApp for interior, exterior, decorative, wood and PU polish, and commercial painting.";
+const description = SITE_DESCRIPTION;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const schema = {
   "@context": "https://schema.org",
   "@type": "HousePainter",
@@ -35,7 +31,7 @@ const schema = {
   },
   geo: { "@type": "GeoCoordinates", latitude: LAT, longitude: LNG },
   openingHours: HOURS_SCHEMA,
-  areaServed: ["Ulsoor", "Bangalore", "Chennai", "Hyderabad"],
+  areaServed: ["Ulsoor", "Bangalore"],
 };
 ---
 
@@ -43,24 +39,31 @@ const schema = {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{HEAD_TITLE}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content={THEME_COLOR} />
-    <meta property="og:title" content={title} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={HEAD_TITLE} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://jaypainters.surge.sh/gallery/hero-finished-exterior.jpg"
-    />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Jay Painters" />
+    <meta property="og:image" content="https://jaypainters.surge.sh/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Freshly painted building exterior by Jay Painters" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ea580c'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='36' font-weight='bold' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c2410c'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='36' font-weight='bold' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E"
     />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href="/fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link
       rel="preload"
-      href="/fonts/outfit-400-latin.woff2"
+      href="/fonts/worksans-latin.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -68,11 +71,14 @@ const schema = {
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   </head>
   <body>
+    <a class="skip" href="#main">
+      Skip to content
+    </a>
+    <slot name="bar" />
     <slot name="header" />
-    <main>
+    <main id="main">
       <slot name="main" />
     </main>
     <slot name="footer" />
-    <slot name="bar" />
   </body>
 </html>

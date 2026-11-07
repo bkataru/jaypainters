@@ -1,31 +1,20 @@
 ---
-import {
-  PHONE_TEL,
-  PHONE_DISPLAY,
-  HOURS_LABEL,
-  ADDRESS,
-  SINCE_YEAR,
-  waLink,
-  yearsSince1980,
-} from "../data/site";
+import { PHONE_TEL, PHONE_DISPLAY, HERO_HOURS, AREA_SHORT, SINCE_YEAR, waLink } from "../data/site";
 
-const years = yearsSince1980();
 const PHONE_PATH =
   "M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z";
 const CHAT_PATH =
   "M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z";
 ---
 
-<section class="hero" aria-label="Introduction">
+<section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="hero-badge">
-        <span class="dot" aria-hidden="true"></span>Ulsoor, Bangalore · Taking new work
-      </p>
-      <h1>Bangalore house painters you can call today.</h1>
+      <p class="hero-badge">Ulsoor, Bangalore · Since {SINCE_YEAR}</p>
+      <h1>Ulsoor painters for flats, houses and offices across Bangalore since 1980.</h1>
       <p class="hero-sub">
-        Jay Painters does homes and buildings across Bangalore since {SINCE_YEAR}. One tap to call
-        or WhatsApp; the owner answers and follows up himself.
+        Painting homes and buildings across Bangalore since {SINCE_YEAR}. One tap to call or
+        WhatsApp; the owner answers and follows up himself.
       </p>
       <div class="btn-row">
         <a class="btn btn-call" href={PHONE_TEL}>
@@ -42,7 +31,12 @@ const CHAT_PATH =
           </svg>
           Call&nbsp;{PHONE_DISPLAY}
         </a>
-        <a class="btn btn-wa" href={waLink("Hi Jay Painters, I need painting work.")}>
+        <a
+          class="btn btn-wa"
+          href={waLink("Hi Jay Painters, I need painting in ____ (area). When can you visit?")}
+          target="_blank"
+          rel="noopener"
+        >
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -57,10 +51,10 @@ const CHAT_PATH =
           WhatsApp us
         </a>
       </div>
-      <p class="small hero-meta">{HOURS_LABEL}</p>
-      <p class="small hero-meta">{ADDRESS}</p>
+      <p class="small hero-meta">{HERO_HOURS}</p>
+      <p class="small hero-meta">{AREA_SHORT}</p>
       <p class="hero-cred">
-        <strong>{years} years</strong> since {SINCE_YEAR} · owner on every site
+        <strong>Since {SINCE_YEAR}</strong> · owner on every site
       </p>
       <ul class="hero-chips">
         <li>Owner answers directly</li>
@@ -68,13 +62,13 @@ const CHAT_PATH =
         <li>Own crews, no brokers</li>
       </ul>
     </div>
-    <div class="hero-collage" role="group" aria-label="Finished work">
+    <div class="hero-collage">
       <figure class="hero-photo">
         <picture>
           <source srcset="/gallery-webp/hero-finished-exterior.webp" type="image/webp" />
           <img
             src="/gallery/hero-finished-exterior.jpg"
-            alt="Finished exterior, Bangalore"
+            alt=""
             width="750"
             height="1000"
             loading="eager"
@@ -82,35 +76,35 @@ const CHAT_PATH =
             decoding="async"
           />
         </picture>
-        <figcaption>Finished exterior, Bangalore</figcaption>
+        <figcaption>New exterior paint</figcaption>
       </figure>
       <figure class="hero-photo hero-photo-small">
         <picture>
           <source srcset="/gallery-webp/local-crew-exterior-01.webp" type="image/webp" />
           <img
             src="/gallery/local-crew-exterior-01.jpg"
-            alt="Crew painting exterior"
+            alt=""
             width="750"
             height="1000"
             loading="lazy"
             decoding="async"
           />
         </picture>
-        <figcaption>Crew at work</figcaption>
+        <figcaption>Painter at work</figcaption>
       </figure>
       <figure class="hero-photo hero-photo-small">
         <picture>
           <source srcset="/gallery-webp/jd-commercial-scaffold-01.webp" type="image/webp" />
           <img
             src="/gallery/jd-commercial-scaffold-01.jpg"
-            alt="Commercial block, scaffold work"
+            alt=""
             width="900"
             height="1200"
             loading="lazy"
             decoding="async"
           />
         </picture>
-        <figcaption>Commercial site</figcaption>
+        <figcaption>Apartment block site</figcaption>
       </figure>
     </div>
   </div>

@@ -6,3 +6,6 @@ justdial/
 assets/
 public/
 package-lock.json
+*.md
+!README.md
+docs/

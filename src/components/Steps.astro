@@ -15,17 +15,17 @@ const STEPS = [
   {
     n: "3",
     title: "Crew arrives",
-    body: "A team is assigned, Anthony works on site, and you check the finish.",
+    body: "Two to four painters on site, with Anthony. You check the finish before he takes payment.",
   },
 ];
 ---
 
-<section class="steps-section" aria-label="How it works">
+<section class="steps-section" id="how-it-works">
   <div class="wrap">
     <p class="section-kicker">How it works</p>
     <h2>Three steps to a finished job</h2>
-    <p class="section-lead">No forms, no waiting on email. One call starts it.</p>
-    <ol class="steps">
+    <p class="section-lead">One call starts it. A site visit is free.</p>
+    <ol class="steps" role="list">
       {STEPS.map((s) => (
         <li>
           <span class="step-num" aria-hidden="true">
@@ -40,7 +40,12 @@ const STEPS = [
       <a class="btn btn-call" href={PHONE_TEL}>
         Call&nbsp;{PHONE_DISPLAY}
       </a>
-      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I would like a site visit.")}>
+      <a
+        class="btn btn-wa"
+        href={waLink("Hi Jay Painters, I would like a site visit in ____.")}
+        target="_blank"
+        rel="noopener"
+      >
         WhatsApp for a visit
       </a>
     </div>

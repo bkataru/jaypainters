@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jaypainters.surge.sh/sitemap.xml

@@ -1,36 +1,87 @@
 @font-face {
   font-family: Outfit;
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/outfit-400-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF;
+  src: url("/fonts/outfit-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: Outfit;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/outfit-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
 }
 
 @font-face {
   font-family: "Work Sans";
   font-style: normal;
-  font-weight: 400 600;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/worksans-400-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF;
+  src: url("/fonts/worksans-latin.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/worksans-latin-ext.woff2") format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
 }
 
 :root {
-  --color-primary: #ea580c;
+  --color-primary: #c2410c;
   --color-on-primary: #fff;
+  --color-primary-dark: #9a3412;
+  --color-primary-bright: #ea580c;
   --color-secondary: #f97316;
   --color-accent: #2563eb;
-  --color-on-accent: #fff;
   --color-background: #fff7ed;
   --color-foreground: #0f172a;
   --color-card: #fff;
-  --color-card-foreground: #0f172a;
   --color-muted: #fdf4f0;
   --color-muted-foreground: #475569;
-  --color-border: #fceae1;
-  --color-ring: #ea580c;
+  --color-border: #f3d8c8;
+  --color-border-strong: #e7c3ad;
+  --color-ring: #1d4ed8;
   --color-wa: #1f7a34;
+  --color-wa-dark: #166534;
+  --color-inverse: #0f172a;
+  --color-inverse-soft: #1e293b;
+  --color-inverse-card: #1b2432;
+  --color-inverse-border: #33415a;
+  --color-inverse-text: #e2e8f0;
+  --color-inverse-lead: #cbd5e1;
+  --color-inverse-small: #94a3b8;
+  --color-inverse-kicker: #fb923c;
+  --color-inverse-link: #93c5fd;
+  --color-kicker: #9a3412;
+  --color-selection: #c2410c;
+  --shadow-primary: 0 4px 14px rgb(194 65 12 / 0.35);
+  --shadow-primary-lift: 0 6px 20px rgb(194 65 12 / 0.4);
+  --shadow-wa: 0 4px 14px rgb(31 122 52 / 0.3);
+  --shadow-wa-lift: 0 6px 20px rgb(31 122 52 / 0.35);
+  --header-h: 64px;
+  --z-header: 10;
+  --z-bar: 20;
+
+  color-scheme: light;
+
   --font-display: "Outfit", system-ui, -apple-system, "Segoe UI", roboto, arial, sans-serif;
   --font-body: "Work Sans", system-ui, -apple-system, "Segoe UI", roboto, arial, sans-serif;
   --radius: 12px;
@@ -57,7 +108,18 @@ html {
   *::after {
     /* stylelint-disable-next-line declaration-no-important -- reduced-motion override must beat component transitions */
     transition-duration: 0.01ms !important;
+    /* stylelint-disable-next-line declaration-no-important -- same */
+    transition-delay: 0.01ms !important;
+    /* stylelint-disable-next-line declaration-no-important -- same */
+    animation-duration: 0.01ms !important;
+    /* stylelint-disable-next-line declaration-no-important -- same */
+    animation-iteration-count: 1 !important;
   }
+}
+
+::selection {
+  background: var(--color-selection);
+  color: #fff;
 }
 
 body {
@@ -67,7 +129,6 @@ body {
   line-height: 1.6;
   color: var(--color-foreground);
   background: var(--color-background);
-  overflow-x: hidden;
 }
 
 h1,
@@ -106,18 +167,37 @@ a {
 }
 
 a,
-button,
-.tile,
-video {
+.tile {
   touch-action: manipulation;
 }
 
 a:focus-visible,
-.tile:focus-visible,
-video:focus-visible {
+.tile:focus-visible {
   outline: 3px solid var(--color-ring);
   outline-offset: 3px;
+}
+
+a:not(.btn):focus-visible,
+.tile:focus-visible {
   border-radius: 6px;
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -64px;
+  z-index: 30;
+  background: var(--color-foreground);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top var(--transition);
+}
+
+.skip:focus-visible {
+  top: 12px;
 }
 
 .wrap {
@@ -128,7 +208,7 @@ video:focus-visible {
 
 section {
   padding: 56px 0;
-  scroll-margin-top: 76px;
+  scroll-margin-top: calc(var(--header-h) + 12px);
 }
 
 /* How it works */
@@ -147,7 +227,7 @@ section {
   gap: 16px;
 }
 
-@media (width >= 760px) {
+@media (width >= 640px) {
   .steps {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -155,7 +235,7 @@ section {
 
 .steps li {
   padding: 20px;
-  border: 1px dashed var(--color-border);
+  border: 1px dashed var(--color-border-strong);
   border-radius: var(--radius);
   background: var(--color-muted);
 }
@@ -196,7 +276,7 @@ section {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--color-kicker);
   margin-bottom: 8px;
 }
 
@@ -247,40 +327,50 @@ section {
 .btn-call {
   background: var(--color-primary);
   color: var(--color-on-primary);
-  box-shadow: 0 4px 14px rgb(234 88 12 / 0.35);
+  box-shadow: var(--shadow-primary);
 }
 
 .btn-call:hover {
-  background: #c2410c;
+  background: var(--color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgb(234 88 12 / 0.4);
+  box-shadow: var(--shadow-primary-lift);
+}
+
+.btn-call:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-primary);
 }
 
 .btn-wa {
   background: var(--color-wa);
   color: #fff;
-  box-shadow: 0 4px 14px rgb(31 122 52 / 0.3);
+  box-shadow: var(--shadow-wa);
 }
 
 .btn-wa:hover {
-  background: #166534;
+  background: var(--color-wa-dark);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgb(31 122 52 / 0.35);
+  box-shadow: var(--shadow-wa-lift);
+}
+
+.btn-wa:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-wa);
 }
 
 .btn-card {
-  min-height: 44px;
+  min-height: 48px;
   padding: 0 20px;
-  font-size: 15px;
+  font-size: 16px;
+  border-radius: 10px;
 }
 
 /* Header */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgb(255 247 237 / 0.92);
-  backdrop-filter: blur(8px);
+  z-index: var(--z-header);
+  background: rgb(255 247 237 / 0.98);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -289,10 +379,14 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  min-height: 64px;
+  min-height: var(--header-h);
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 21px;
@@ -305,7 +399,6 @@ section {
   display: block;
   width: 72px;
   height: 6px;
-  margin-top: 2px;
   border-radius: 3px;
   background: linear-gradient(
     90deg,
@@ -332,11 +425,17 @@ section {
   font-weight: 500;
   padding: 0 12px;
   border-radius: 8px;
-  transition: background var(--transition);
+  transition: background-color var(--transition);
 }
 
-.site-nav a:hover {
-  background: var(--color-muted);
+@media (hover: hover) and (pointer: fine) {
+  .site-nav a:not(.nav-call):hover {
+    background: var(--color-border);
+  }
+
+  .site-nav .nav-call:hover {
+    background: var(--color-primary-dark);
+  }
 }
 
 .site-nav .nav-call {
@@ -350,6 +449,10 @@ section {
    WhatsApp) so the header stays a single clean row. Placed after the base
    rules so these declarations win. */
 @media (width <= 639px) {
+  :root {
+    --header-h: 77px;
+  }
+
   .site-header .wrap {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -370,15 +473,11 @@ section {
   }
 
   .site-nav a.nav-call {
-    min-height: 40px;
+    min-height: 44px;
     padding: 0 18px;
     font-size: 15px;
     margin-left: 0;
   }
-}
-
-.site-nav .nav-call:hover {
-  background: #c2410c;
 }
 
 /* Hero */
@@ -403,25 +502,15 @@ section {
 }
 
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  padding: 6px 16px 6px 8px;
+  padding: 6px 16px;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 16px;
   box-shadow: var(--shadow-card);
-}
-
-.hero-badge .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-wa);
-  flex: none;
 }
 
 .hero-sub {
@@ -466,33 +555,47 @@ section {
   box-shadow: var(--shadow-card);
 }
 
+/* Single full-width photo on phones: the tall collage crops the hero
+   portrait to a sliver below 640px, so small tiles hide there. */
 .hero-collage {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
-  align-items: stretch;
 }
 
-.hero-collage .hero-photo:first-child {
-  grid-row: span 2;
+.hero-photo-small {
+  display: none;
+}
+
+@media (width >= 640px) {
+  .hero-collage {
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: repeat(2, minmax(0, 265px));
+  }
+
+  .hero-photo-small {
+    display: block;
+  }
+
+  .hero-collage .hero-photo:first-child {
+    grid-row: span 2;
+  }
 }
 
 .hero-photo {
   margin: 0;
   position: relative;
-  min-height: 0;
 }
 
-.hero-photo picture,
-.hero-photo img {
+.hero-photo picture {
   display: block;
-  width: 100%;
   height: 100%;
 }
 
 .hero-photo img {
-  aspect-ratio: 3 / 4;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: var(--shadow-lift);
@@ -504,14 +607,19 @@ section {
 
 .hero-photo figcaption {
   position: absolute;
-  left: 16px;
-  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
   background: rgb(15 23 42 / 0.82);
   color: #fff;
   font-size: 14px;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: 999px;
+  border-radius: 12px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Services */
@@ -529,16 +637,21 @@ section {
 
 @media (width >= 1000px) {
   .service-groups {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .service-group {
+    grid-column: span 2;
   }
 
   .service-group:nth-child(4),
   .service-group:nth-child(5) {
-    grid-column: span 1;
+    grid-column: span 3;
   }
 }
 
 .service-group {
+  position: relative;
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -551,9 +664,18 @@ section {
   flex-direction: column;
 }
 
-.service-group:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lift);
+@media (hover: hover) and (pointer: fine) {
+  .service-group:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+}
+
+.btn-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
 }
 
 .service-icon {
@@ -563,7 +685,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   margin-bottom: 14px;
 }
 
@@ -630,8 +752,14 @@ section {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 14px;
+}
+
+@media (width >= 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (width >= 640px) {
@@ -671,28 +799,17 @@ section {
     box-shadow var(--transition);
 }
 
-.gallery-feature figure:hover,
-.gallery-grid figure:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-lift);
-}
-
 .gallery-feature .tile,
 .gallery-grid .tile {
   display: block;
   overflow: hidden;
-  cursor: zoom-in;
 }
 
-.gallery-feature .tile picture,
-.gallery-grid .tile picture {
-  display: block;
-}
-
-.gallery-feature .tile:focus-visible,
-.gallery-grid .tile:focus-visible {
+.gallery-feature figure:has(.tile:focus-visible),
+.gallery-grid figure:has(.tile:focus-visible),
+.clips figure:has(video:focus-visible) {
   outline: 3px solid var(--color-ring);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .gallery-feature img,
@@ -702,12 +819,20 @@ section {
   display: block;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  transition: transform 300ms ease;
+  transition: transform var(--transition);
 }
 
-.gallery-feature figure:hover img,
-.gallery-grid figure:hover img {
-  transform: scale(1.04);
+@media (hover: hover) and (pointer: fine) {
+  .gallery-feature figure:hover,
+  .gallery-grid figure:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+
+  .gallery-feature figure:hover img,
+  .gallery-grid figure:hover img {
+    transform: scale(1.04);
+  }
 }
 
 .gallery-feature figcaption,
@@ -718,13 +843,9 @@ section {
   padding: 10px 12px 12px;
 }
 
-.gallery-feature figcaption {
-  font-size: 14px;
-  padding: 12px 16px 14px;
-}
-
 .gallery-cta,
-.clips-cta {
+.clips-cta,
+.services-cta {
   margin-top: 28px;
 }
 
@@ -755,8 +876,7 @@ section {
   height: auto;
   display: block;
   background: #000;
-  aspect-ratio: 9 / 14;
-  object-fit: cover;
+  aspect-ratio: 5 / 9;
 }
 
 .clips figcaption {
@@ -768,7 +888,7 @@ section {
 
 /* Contact */
 .contact-section {
-  background: linear-gradient(180deg, var(--color-foreground) 0%, #1e293b 100%);
+  background: var(--color-inverse);
   color: #fff;
 }
 
@@ -777,18 +897,22 @@ section {
 }
 
 .contact-section .section-kicker {
-  color: var(--color-secondary);
+  color: var(--color-inverse-kicker);
 }
 
 .contact-section .section-lead {
-  color: #cbd5e1;
+  color: var(--color-inverse-lead);
 }
 
 .contact-card {
-  background: rgb(255 255 255 / 0.06);
-  border: 1px solid rgb(255 255 255 / 0.12);
+  background: var(--color-inverse-card);
+  border: 1px solid var(--color-inverse-border);
   border-radius: 16px;
   padding: clamp(24px, 4vw, 36px);
+}
+
+.contact-cta {
+  margin: 0 0 20px;
 }
 
 .contact-card .contact-owner {
@@ -797,11 +921,11 @@ section {
 }
 
 .contact-card p {
-  color: #e2e8f0;
+  color: var(--color-inverse-text);
 }
 
-.contact-card a[href^="http"] {
-  color: #93c5fd;
+.contact-card a:not(.btn) {
+  color: var(--color-inverse-link);
 }
 
 .pin-icon {
@@ -809,7 +933,7 @@ section {
 }
 
 .contact-card .small {
-  color: #94a3b8;
+  color: var(--color-inverse-small);
 }
 
 /* Footer */
@@ -829,7 +953,7 @@ section {
 .site-footer nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 44px;
   color: var(--color-muted-foreground);
   text-decoration: none;
   font-size: 14px;
@@ -844,12 +968,11 @@ section {
   position: fixed;
   left: 12px;
   right: 12px;
-  bottom: 12px;
-  z-index: 10;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: var(--z-bar);
   display: flex;
   gap: 10px;
-  background: rgb(15 23 42 / 0.94);
-  backdrop-filter: blur(8px);
+  background: rgb(15 23 42 / 0.98);
   border-radius: 16px;
   padding: 10px;
   box-shadow: 0 8px 32px rgb(15 23 42 / 0.35);
@@ -895,16 +1018,11 @@ section {
   }
 }
 
-/* Extra-narrow phones: base rules above are overridden here, so this
-   block must stay last in the file. */
+/* Extra-narrow phones: single column is already the base for the collage
+   and gallery, so only button and chip density change here. */
 @media (width <= 399px) {
   .hero-chips {
     gap: 6px;
-  }
-
-  .hero-collage {
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
   }
 
   .btn {
@@ -914,5 +1032,23 @@ section {
 
   .btn-row {
     gap: 10px;
+  }
+}
+
+@media print {
+  .site-header,
+  .sticky-bar,
+  .clips,
+  .gallery-grid,
+  .gallery-feature {
+    display: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  a[href^="tel"]::after {
+    content: " " attr(href);
   }
 }

@@ -13,7 +13,7 @@ Surge.sh at <https://jaypainters.surge.sh>. Maintainer: bkataru.
 ```sh
 npm install
 npm run build
-node scripts/check-weight.mjs
+python scripts/check-weight.py
 npm run check
 npm run lint:html
 npm run validate:html
@@ -40,7 +40,7 @@ All nine must pass before a publish:
 | HTML5 conformance | `npm run validate:html` |
 | CSS rules | `npm run lint:css` |
 | Formatting | `npx prettier --check "src/**/*.{astro,ts,css}"` |
-| Weight and freshness budget | `node scripts/check-weight.mjs` |
+| Weight and freshness budget | `python scripts/check-weight.py` |
 | Contact links | grep `tel:` and `wa.me` counts in `dist/index.html` |
 | Preview render | fetch the preview URL and read the text |
 
@@ -57,9 +57,9 @@ JPEG, so WebP is always the smaller file.
 
 ## Editing content
 
-All facts live in `src/data/site.ts`: phone, hours, address, map URL, brand
-line, service groups with prefill text, gallery list, clip list, style
-literals, `lastVerified`. Edit one value, rebuild, redeploy.
+All facts live in `src/data/site.ts`: phone, hours, address, map URL, service
+groups with prefill text, gallery list, clip list, `LAST_VERIFIED`. Edit one
+value, rebuild, redeploy. Captions must describe what is visible in the photo.
 
 ## Adding a photo
 
@@ -67,7 +67,8 @@ literals, `lastVerified`. Edit one value, rebuild, redeploy.
 2. Drop into `public/gallery/` with a plain slug name.
 3. Add the `{ file, caption, width, height }` entry to `GALLERY` in
    `src/data/site.ts`.
-4. Rebuild and run the weight check.
+4. Run `python scripts/make-webp.py` to rebuild `public/gallery-webp/`.
+5. Rebuild and run the weight check.
 
 ## Domains
 
@@ -84,5 +85,4 @@ Revisit trigger: move to GitHub Pages or Cloudflare if Surge limits bite.
 ## Notes
 
 - No forms, prices, booking, backend, CMS, or login by design.
-- Brand line is the neutral fallback until a dealer certificate is confirmed.
 - `/kn/` is a reserved name only; no route ships.

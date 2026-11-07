@@ -2,14 +2,10 @@
 import { CLIPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
 ---
 
-<section id="clips" aria-label="Work clips">
+<section id="clips" aria-label="Videos" tabindex="-1">
   <div class="wrap">
     <p class="section-kicker">On the job</p>
-    <h2>At work</h2>
-    <p class="section-lead">
-      Short clips from our jobs: a crew painting a ceiling, and Anthony masking wood frames for
-      polish work.
-    </p>
+    <h2>Watch the work happen</h2>
     <div class="clips">
       {CLIPS.map((c) => (
         <figure>
@@ -20,8 +16,13 @@ import { CLIPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
             preload="none"
             poster={`/posters/${c.poster}`}
             src={`/video/${c.file}`}
-          />
-          <figcaption>{c.caption}</figcaption>
+            width="480"
+            height="864"
+            aria-label={`${c.caption} (silent clip)`}
+          >
+            <a href={`/video/${c.file}`}>Watch the clip (MP4, silent)</a>
+          </video>
+          <figcaption>{c.caption} · silent</figcaption>
         </figure>
       ))}
     </div>
@@ -29,7 +30,12 @@ import { CLIPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
       <a class="btn btn-call" href={PHONE_TEL}>
         Call&nbsp;{PHONE_DISPLAY}
       </a>
-      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I want this quality on my job.")}>
+      <a
+        class="btn btn-wa"
+        href={waLink("Hi Jay Painters, I saw the ceiling clip. I need a repaint in ____.")}
+        target="_blank"
+        rel="noopener"
+      >
         WhatsApp for this quality
       </a>
     </div>

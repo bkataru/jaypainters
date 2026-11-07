@@ -1,5 +1,5 @@
 ---
-import { SERVICE_GROUPS, BRAND_FALLBACK, waLink } from "../data/site";
+import { SERVICE_GROUPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
 
 const ICONS = [
   "M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75",
@@ -10,13 +10,11 @@ const ICONS = [
 ];
 ---
 
-<section id="services" aria-label="Services">
+<section id="services" aria-label="Services" tabindex="-1">
   <div class="wrap">
     <p class="section-kicker">What we do</p>
-    <h2>Services</h2>
-    <p class="section-lead">
-      Five groups, one crew. Tap any group to start a WhatsApp chat about that job.
-    </p>
+    <h2>Five kinds of job, one crew</h2>
+    <p class="section-lead">Tap any group to start a WhatsApp chat about that job.</p>
     <div class="service-groups">
       {SERVICE_GROUPS.map((g, i) => (
         <div class="service-group">
@@ -27,17 +25,21 @@ const ICONS = [
           </div>
           <h3>{g.title}</h3>
           <p class="typical">{g.typical}</p>
-          <ul>
+          <ul role="list">
             {g.items.map((item) => (
               <li>{item}</li>
             ))}
           </ul>
-          <a class="btn btn-wa btn-card" href={waLink(g.prefill)}>
-            WhatsApp about {g.title.toLowerCase()}
+          <a class="btn btn-wa btn-card" href={waLink(g.prefill)} target="_blank" rel="noopener">
+            {g.cta}
           </a>
         </div>
       ))}
     </div>
-    <p class="brand-line">{BRAND_FALLBACK}.</p>
+    <div class="btn-row services-cta">
+      <a class="btn btn-call" href={PHONE_TEL}>
+        Call&nbsp;{PHONE_DISPLAY}
+      </a>
+    </div>
   </div>
 </section>

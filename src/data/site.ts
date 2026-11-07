@@ -7,25 +7,26 @@ export const PHONE_E164 = "+919731670742";
 export const WA_BASE = "https://wa.me/919731670742?text=";
 
 export const HOURS_SHORT = "7 AM–9 PM";
-export const HOURS_LONG = "07:00–21:00";
 export const HOURS_SCHEMA = "Mo-Su 07:00-21:00";
-export const HOURS_NOTE = "Replies 7 AM–9 PM, WhatsApp anytime";
-export const HOURS_LABEL = "7 AM–9 PM · Replies 7 AM–9 PM, WhatsApp anytime";
+export const HOURS_NOTE = "WhatsApp anytime; replies 7 AM–9 PM";
+export const HERO_HOURS = "Open 7 AM–9 PM, every day · WhatsApp anytime";
 
 export const OWNER = "Anthony Jayasheelan";
 export const SINCE_YEAR = 1980;
 export const ADDRESS =
   "#21, Gauthamapuram, Near Football Ground, R H A Penchine Line, Ulsoor, Bangalore-560008, Karnataka";
-export const LANDMARK = "Near Football Ground, Ulsoor. Ask for Jay Painters";
+export const AREA_SHORT = "Ulsoor, Bangalore 560008";
+export const LANDMARK = "Near Football Ground, Ulsoor";
 export const LAT = 12.972696;
 export const LNG = 77.626606;
-export const MAP_URL =
-  "https://www.google.com/maps/search/?api=1&query=%2321%20Gauthamapuram%20Near%20Football%20Ground%20Ulsoor%20Bangalore-560008";
-
-export const BRAND_FALLBACK = "Handles Asian Paints and Deco paints";
+export const MAP_URL = "https://www.google.com/maps/dir/?api=1&destination=12.972696,77.626606";
+export const JUSTDIAL_URL =
+  "https://www.justdial.com/Bangalore/Jay-Painters-Near-Football-Ground-Ulsoor/080PXX80-XX80-261007120204-I2A4_BZDET";
 export const LAST_VERIFIED = "2026-11-07";
 
-export const HEAD_TITLE = "Jay Painters — Ulsoor, Bangalore";
+export const HEAD_TITLE = "House painters in Ulsoor, Bangalore | Jay Painters";
+export const SITE_DESCRIPTION =
+  "Painting flats, houses and offices in Ulsoor and Bangalore since 1980. Owner Anthony visits, quotes and runs the crew. Call or WhatsApp.";
 export const THEME_COLOR = "#fff7ed";
 
 export interface ServiceGroup {
@@ -33,38 +34,44 @@ export interface ServiceGroup {
   items: string[];
   typical: string;
   prefill: string;
+  cta: string;
 }
 
 export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     title: "Home interiors",
-    items: ["Living room", "Bedroom", "Putty", "Wall", "Window", "White wash"],
+    items: ["Living rooms", "Bedrooms", "Walls", "Windows", "Putty", "White wash"],
     typical: "A lived-in flat, repainted room by room",
-    prefill: "Hi Jay Painters, I need interior painting.",
+    prefill: "Hi Jay Painters, I need interior painting in ____.",
+    cta: "Ask about interiors",
   },
   {
     title: "Outside and waterproof",
     items: ["Exterior walls", "Terrace and leakage painting"],
     typical: "A house exterior plus a terrace touch-up",
-    prefill: "Hi Jay Painters, I need exterior or waterproof painting.",
+    prefill: "Hi Jay Painters, I need exterior or waterproof painting in ____.",
+    cta: "Ask about waterproofing",
   },
   {
     title: "Decorative",
-    items: ["3D", "Texture", "Deco finishes", "Spray", "Statue"],
+    items: ["3D", "Texture", "Deco finishes", "Spray", "Statue and idol repainting"],
     typical: "One feature wall with a new finish",
-    prefill: "Hi Jay Painters, I need decorative painting.",
+    prefill: "Hi Jay Painters, I need decorative painting in ____.",
+    cta: "Ask about a feature wall",
   },
   {
     title: "Wood and polish",
     items: ["Doors", "Furniture", "PU polish", "Polish"],
     typical: "Doors and frames in PU or classic polish",
-    prefill: "Hi Jay Painters, I need wood polish work.",
+    prefill: "Hi Jay Painters, I need wood polish work in ____.",
+    cta: "Ask about wood polish",
   },
   {
     title: "Buildings and workplaces",
-    items: ["Apartments", "Buildings", "Malls", "Offices"],
+    items: ["Apartments", "Buildings", "Offices"],
     typical: "A crew assigned to one building or floor",
-    prefill: "Hi Jay Painters, I need painting for a building.",
+    prefill: "Hi Jay Painters, I need painting for a building in ____.",
+    cta: "Ask about a building",
   },
 ];
 
@@ -80,96 +87,94 @@ export interface GalleryEntry {
 export const GALLERY: GalleryEntry[] = [
   {
     file: "hero-finished-exterior.jpg",
-    caption: "Finished exterior, Bangalore",
+    caption: "New exterior paint, Bangalore",
     width: 750,
     height: 1000,
     hero: true,
   },
   {
-    file: "local-interior-texture-01.jpg",
-    caption: "Terrace crew at work",
-    width: 864,
-    height: 1152,
-  },
-  {
-    file: "local-interior-room-01.jpg",
-    caption: "Terrace repaint in progress",
+    file: "local-terrace-painter-01.jpg",
+    caption: "Painter on a terrace job",
     width: 864,
     height: 1152,
   },
   {
     file: "local-decorative-finish-01.jpg",
-    caption: "Decorative wall finish",
+    caption: "Terrace stairs getting a fresh coat",
     width: 864,
     height: 1152,
   },
   {
     file: "local-interior-room-02.jpg",
-    caption: "Interior room painting",
+    caption: "Interior room with decorative ceiling border",
     width: 864,
     height: 1152,
   },
   {
     file: "local-exterior-building-01.jpg",
-    caption: "Exterior building painting",
+    caption: "Textured exterior wall and window",
     width: 864,
     height: 1152,
   },
   {
-    file: "local-exterior-detail-01.jpg",
-    caption: "Exterior detail work",
+    file: "local-interior-hall-01.jpg",
+    caption: "Interior hall repaint in progress",
     width: 864,
     height: 1152,
   },
   {
     file: "local-crew-exterior-01.jpg",
-    caption: "Crew painting exterior",
+    caption: "Third-floor exterior, painter at work",
     width: 750,
     height: 1000,
     hero: true,
   },
-  { file: "local-wood-polish-01.jpg", caption: "Wood polish work", width: 864, height: 1152 },
   {
     file: "local-interior-ceiling-01.jpg",
-    caption: "Interior ceiling painting",
+    caption: "Finished living room with cove lighting",
+    width: 864,
+    height: 1152,
+    featured: true,
+  },
+  {
+    file: "local-wall-finish-01.jpg",
+    caption: "Living room with feature wall",
     width: 864,
     height: 1152,
   },
-  { file: "local-wall-finish-01.jpg", caption: "Wall finish work", width: 864, height: 1152 },
   {
-    file: "local-exterior-house-01.jpg",
-    caption: "House exterior painting",
+    file: "local-interior-prep-01.jpg",
+    caption: "Masked frames ready for paint",
     width: 864,
     height: 1152,
   },
   {
     file: "jd-finished-apartments-01.jpg",
-    caption: "Finished apartments, exterior",
+    caption: "Apartment block exterior, near completion",
     width: 900,
     height: 1200,
-    featured: true,
   },
   {
     file: "jd-white-building-01.jpg",
-    caption: "White building exterior",
+    caption: "Finished white building, exterior",
     width: 900,
     height: 1200,
     featured: true,
   },
   {
     file: "jd-yellow-exterior-01.jpg",
-    caption: "Yellow exterior finish",
+    caption: "Exterior repaint, tan and maroon",
     width: 750,
     height: 1000,
   },
   {
     file: "jd-commercial-scaffold-01.jpg",
-    caption: "Commercial block, scaffold work",
+    caption: "Apartment block under construction",
     width: 900,
     height: 1200,
     hero: true,
   },
-  { file: "jd-materials-01.jpg", caption: "Paints and tools on site", width: 900, height: 1200 },
+  { file: "jd-materials-01.jpg", caption: "Paints and rollers on site", width: 900, height: 1200 },
 ];
 
 export interface ClipEntry {
@@ -182,12 +187,12 @@ export const CLIPS: ClipEntry[] = [
   {
     file: "ceiling-painting-clip.mp4",
     poster: "ceiling-painting-poster.jpg",
-    caption: "Ceiling painting, crew at work",
+    caption: "Ceiling repaint, single painter on scaffold",
   },
   {
     file: "wood-polish-clip.mp4",
     poster: "wood-polish-poster.jpg",
-    caption: "Wood masking and polish, Anthony at work",
+    caption: "Masking glass before polish, Anthony",
   },
 ];
 

@@ -5,6 +5,7 @@ import {
   HOURS_SHORT,
   HOURS_NOTE,
   MAP_URL,
+  JUSTDIAL_URL,
   OWNER,
   SINCE_YEAR,
   PHONE_TEL,
@@ -20,12 +21,47 @@ const PIN_PATH =
   "M15 10.5a3 3 0 11-6 0 3 3 0 016 0zM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z";
 ---
 
-<section id="contact" class="contact-section" aria-label="Contact">
+<section id="contact" class="contact-section" aria-label="Contact" tabindex="-1">
   <div class="wrap">
     <p class="section-kicker">Get in touch</p>
     <h2>Call or WhatsApp today</h2>
-    <p class="section-lead">The owner picks up and follows through himself.</p>
+    <p class="section-lead">One call starts it. A site visit is free.</p>
     <div class="contact-card">
+      <div class="btn-row contact-cta">
+        <a class="btn btn-call" href={PHONE_TEL}>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d={PHONE_PATH} />
+          </svg>
+          Call&nbsp;{PHONE_DISPLAY}
+        </a>
+        <a
+          class="btn btn-wa"
+          href={waLink("Hi Jay Painters, I am ready to book a site visit in ____.")}
+          target="_blank"
+          rel="noopener"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d={CHAT_PATH} />
+          </svg>
+          WhatsApp us
+        </a>
+      </div>
       <p class="contact-owner">
         Run by {OWNER} since {SINCE_YEAR}. He manages the crews and works on site himself.
       </p>
@@ -48,43 +84,17 @@ const PIN_PATH =
       </p>
       <p>{LANDMARK}</p>
       <p>
-        Hours: {HOURS_SHORT}. {HOURS_NOTE}.
+        Open {HOURS_SHORT}, every day. {HOURS_NOTE}.
       </p>
       <p>
-        <a href={MAP_URL} rel="noopener">
-          Open in Google Maps
+        <a href={MAP_URL} target="_blank" rel="noopener">
+          Get directions to the shop
+        </a>
+        ·
+        <a href={JUSTDIAL_URL} target="_blank" rel="noopener">
+          See our JustDial listing
         </a>
       </p>
-      <div class="btn-row">
-        <a class="btn btn-call" href={PHONE_TEL}>
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d={PHONE_PATH} />
-          </svg>
-          Call&nbsp;{PHONE_DISPLAY}
-        </a>
-        <a class="btn btn-wa" href={waLink("Hi Jay Painters, I need painting work.")}>
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d={CHAT_PATH} />
-          </svg>
-          WhatsApp us
-        </a>
-      </div>
     </div>
   </div>
 </section>
