@@ -199,7 +199,3 @@ export const CLIPS: ClipEntry[] = [
 export function waLink(prefill: string): string {
   return WA_BASE + encodeURIComponent(prefill);
 }
-
-export function yearsSince1980(now: Date = new Date()): number {
-  return now.getFullYear() - SINCE_YEAR;
-}

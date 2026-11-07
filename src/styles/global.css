@@ -48,7 +48,6 @@
   --color-primary: #c2410c;
   --color-on-primary: #fff;
   --color-primary-dark: #9a3412;
-  --color-primary-bright: #ea580c;
   --color-secondary: #f97316;
   --color-accent: #2563eb;
   --color-background: #fff7ed;
@@ -62,7 +61,6 @@
   --color-wa: #1f7a34;
   --color-wa-dark: #166534;
   --color-inverse: #0f172a;
-  --color-inverse-soft: #1e293b;
   --color-inverse-card: #1b2432;
   --color-inverse-border: #33415a;
   --color-inverse-text: #e2e8f0;
@@ -734,13 +732,6 @@ section {
   height: 7px;
   border-radius: 50%;
   background: var(--color-secondary);
-}
-
-.brand-line {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 15px;
-  color: var(--color-muted-foreground);
 }
 
 /* Gallery */
