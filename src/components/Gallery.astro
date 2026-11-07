@@ -2,20 +2,24 @@
 import { GALLERY } from "../data/site";
 ---
 
-<section id="gallery" aria-label="Gallery">
+<section id="gallery" class="gallery-section" aria-label="Gallery">
   <div class="wrap">
+    <p class="section-kicker">Proof of work</p>
     <h2>Past work</h2>
+    <p class="section-lead">Real sites across Bangalore — finished exteriors, interiors, and crews at work.</p>
     <div class="gallery-grid">
       {
         GALLERY.map((g, i) => (
           <figure>
-            <img
-              src={`/gallery/${g.file}`}
-              alt={g.caption}
-              width={g.width}
-              height={g.height}
-              loading={i === 0 ? "eager" : "lazy"}
-            />
+            <div class="img-wrap">
+              <img
+                src={`/gallery/${g.file}`}
+                alt={g.caption}
+                width={g.width}
+                height={g.height}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            </div>
             <figcaption>{g.caption}</figcaption>
           </figure>
         ))

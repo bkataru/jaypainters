@@ -24,7 +24,7 @@ export const BRAND_FALLBACK = "Handles Asian Paints and Deco paints";
 export const LAST_VERIFIED = "2026-11-07";
 
 export const HEAD_TITLE = "Jay Painters — Ulsoor, Bangalore";
-export const THEME_COLOR = "#1a1a1a";
+export const THEME_COLOR = "#fff7ed";
 
 export interface ServiceGroup {
   title: string;

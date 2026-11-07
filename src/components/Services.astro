@@ -1,27 +1,40 @@
 ---
 import { SERVICE_GROUPS, BRAND_FALLBACK, waLink } from "../data/site";
+
+const ICONS = [
+  "M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75",
+  "M12 3.5c3.2 4.1 6.5 7.8 6.5 11a6.5 6.5 0 11-13 0c0-3.2 3.3-6.9 6.5-11z",
+  "M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z",
+  "M4 7h16M4 12h16M4 17h16",
+  "M4 21V5a1 1 0 011-1h8a1 1 0 011 1v16M14 9h5a1 1 0 011 1v11M3 21h18M7 7.5h4M7 11h4M7 14.5h4",
+];
 ---
 
 <section id="services" aria-label="Services">
   <div class="wrap">
+    <p class="section-kicker">What we do</p>
     <h2>Services</h2>
+    <p class="section-lead">Five groups, one crew. Tap any group to start a WhatsApp chat about that job.</p>
     <div class="service-groups">
       {
-        SERVICE_GROUPS.map((g) => (
+        SERVICE_GROUPS.map((g, i) => (
           <div class="service-group">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d={ICONS[i]} /></svg>
+            </div>
             <h3>{g.title}</h3>
             <ul>
               {g.items.map((item) => (
                 <li>{item}</li>
               ))}
             </ul>
-            <a class="btn btn-wa" href={waLink(g.prefill)}>
+            <a class="btn btn-wa btn-card" href={waLink(g.prefill)}>
               WhatsApp about {g.title.toLowerCase()}
             </a>
           </div>
         ))
       }
     </div>
-    <p class="small">{BRAND_FALLBACK}.</p>
+    <p class="brand-line">{BRAND_FALLBACK}.</p>
   </div>
 </section>
