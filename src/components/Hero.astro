@@ -1,0 +1,18 @@
+---
+import { PHONE_TEL, PHONE_DISPLAY, HOURS_LABEL, SINCE_YEAR, waLink, yearsSince1980 } from "../data/site";
+
+const years = yearsSince1980();
+---
+
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <h1>Jay Painters</h1>
+    <p class="since">Since {SINCE_YEAR} · {years} years of painting work</p>
+    <p>Ulsoor, Bangalore. Homes and buildings across Bangalore; other cities on request.</p>
+    <div class="btn-row">
+      <a class="btn btn-call" href={PHONE_TEL}>Call {PHONE_DISPLAY}</a>
+      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I need painting work.")}>WhatsApp us</a>
+    </div>
+    <p class="small">{HOURS_LABEL}</p>
+  </div>
+</section>

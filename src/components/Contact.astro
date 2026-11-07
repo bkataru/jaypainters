@@ -1,0 +1,17 @@
+---
+import { ADDRESS, LANDMARK, HOURS_SHORT, HOURS_LONG, HOURS_LABEL, MAP_URL, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
+---
+
+<section id="contact" aria-label="Contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>{ADDRESS}</p>
+    <p>{LANDMARK}</p>
+    <p>Hours: {HOURS_SHORT} ({HOURS_LONG}). {HOURS_LABEL}.</p>
+    <p><a href={MAP_URL} rel="noopener">Open in Google Maps</a></p>
+    <div class="btn-row">
+      <a class="btn btn-call" href={PHONE_TEL}>Call {PHONE_DISPLAY}</a>
+      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I need painting work.")}>WhatsApp us</a>
+    </div>
+  </div>
+</section>

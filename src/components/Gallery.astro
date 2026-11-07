@@ -1,0 +1,25 @@
+---
+import { GALLERY } from "../data/site";
+---
+
+<section id="gallery" aria-label="Gallery">
+  <div class="wrap">
+    <h2>Past work</h2>
+    <div class="gallery-grid">
+      {
+        GALLERY.map((g, i) => (
+          <figure>
+            <img
+              src={`/gallery/${g.file}`}
+              alt={g.caption}
+              width={g.width}
+              height={g.height}
+              loading={i === 0 ? "eager" : "lazy"}
+            />
+            <figcaption>{g.caption}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

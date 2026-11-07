@@ -1,0 +1,16 @@
+---
+import { SINCE_YEAR, LAST_VERIFIED, yearsSince1980 } from "../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>Jay Painters</strong> · Since {SINCE_YEAR} ({yearsSince1980()} years)</p>
+    <p class="small">
+      <a href="#services">Services</a> · <a href="#gallery">Gallery</a> · <a href="#about">About</a> ·
+      <a href="#contact">Contact</a>
+    </p>
+    <p class="small">Last verified {LAST_VERIFIED} · © {year} Jay Painters</p>
+  </div>
+</footer>

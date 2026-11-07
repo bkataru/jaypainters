@@ -1,0 +1,27 @@
+---
+import { SERVICE_GROUPS, BRAND_FALLBACK, waLink } from "../data/site";
+---
+
+<section id="services" aria-label="Services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <div class="service-groups">
+      {
+        SERVICE_GROUPS.map((g) => (
+          <div class="service-group">
+            <h3>{g.title}</h3>
+            <ul>
+              {g.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <a class="btn btn-wa" href={waLink(g.prefill)}>
+              WhatsApp about {g.title.toLowerCase()}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+    <p class="small">{BRAND_FALLBACK}.</p>
+  </div>
+</section>

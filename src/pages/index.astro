@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import Gallery from "../components/Gallery.astro";
+import Clips from "../components/Clips.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import StickyBar from "../components/StickyBar.astro";
+---
+
+<Base>
+  <Fragment slot="header"><Header /></Fragment>
+  <Fragment slot="main">
+    <Hero />
+    <Services />
+    <Gallery />
+    <Clips />
+    <About />
+    <Contact />
+  </Fragment>
+  <Fragment slot="footer"><Footer /></Fragment>
+  <Fragment slot="bar"><StickyBar /></Fragment>
+</Base>

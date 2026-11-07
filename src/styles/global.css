@@ -1,0 +1,287 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5a5a5a;
+  --call: #0b5fff;
+  --whatsapp: #1f7a34;
+  --focus: #0b5fff;
+  --line: #e2e2e2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+h2 {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+p {
+  margin: 0 0 12px;
+}
+
+a {
+  color: var(--call);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+section {
+  padding: 32px 0;
+  border-top: 1px solid var(--line);
+}
+
+.small {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+
+.btn {
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+  padding: 0 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-call {
+  background: var(--call);
+  color: #fff;
+}
+
+.btn-wa {
+  background: var(--whatsapp);
+  color: #fff;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo-mark {
+  display: block;
+  width: 64px;
+  height: 6px;
+  margin-top: 2px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--call) 0 60%, var(--whatsapp) 60% 100%);
+}
+
+.site-nav {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 4px;
+}
+
+.hero {
+  padding: 40px 0 32px;
+  border-top: none;
+}
+
+.hero .since {
+  font-weight: 600;
+}
+
+.service-groups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .service-groups {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.service-group {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.service-group h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.service-group ul {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.gallery-grid figure {
+  margin: 0;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.gallery-grid figcaption {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.clips {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .clips {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.clips figure {
+  margin: 0;
+}
+
+.clips video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #000;
+}
+
+.clips figcaption {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px 0 96px;
+}
+
+.sticky-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: stretch;
+  min-height: 56px;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.sticky-bar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #fff;
+}
+
+.sticky-bar .bar-call {
+  background: var(--call);
+}
+
+.sticky-bar .bar-wa {
+  background: var(--whatsapp);
+}
+
+@media (min-width: 640px) {
+  .sticky-bar {
+    display: none;
+  }
+
+  .site-footer {
+    padding-bottom: 24px;
+  }
+}

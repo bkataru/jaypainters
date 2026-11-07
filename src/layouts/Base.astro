@@ -1,0 +1,28 @@
+---
+import "../styles/global.css";
+import { HEAD_TITLE, THEME_COLOR } from "../data/site";
+
+interface Props {
+  title?: string;
+}
+
+const { title = HEAD_TITLE } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="theme-color" content={THEME_COLOR} />
+  </head>
+  <body>
+    <slot name="header" />
+    <main>
+      <slot name="main" />
+    </main>
+    <slot name="footer" />
+    <slot name="bar" />
+  </body>
+</html>
