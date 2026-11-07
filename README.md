@@ -52,7 +52,11 @@ Tooling installed for these: `htmlhint`, `html-validate`, `stylelint` with
 ## Regenerating WebP variants
 
 `python scripts/make-webp.py` rebuilds `public/gallery-webp/` from
-`public/gallery/`. WebP is used unconditionally via `<source>` and is
+`public/gallery/`. Each gallery JPEG produces a full-size WebP plus a
+320/480/720 px width ladder (`<slug>-320.webp`, `<slug>-480.webp`,
+`<slug>-720.webp`, aspect preserved); the ladder rungs feed the `srcset` /
+`sizes` on grid tiles, featured images, and the hero, with the JPEG as the
+`<img src>` fallback. WebP is used unconditionally via `<source>` and is
 usually smaller; it aborts on a 0-byte variant. One file
 (`local-exterior-building-01`) saves almost nothing because the JPEG is
 already WhatsApp-compressed.

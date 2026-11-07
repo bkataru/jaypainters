@@ -4,6 +4,16 @@ import { GALLERY, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
 const shown = GALLERY.filter((g) => !g.hero);
 const featured = shown.filter((g) => g.featured);
 const rest = shown.filter((g) => !g.featured);
+
+function srcset(file: string, width: number): string {
+  const slug = file.replace(".jpg", "");
+  return (
+    `/gallery-webp/${slug}-320.webp 320w, ` +
+    `/gallery-webp/${slug}-480.webp 480w, ` +
+    `/gallery-webp/${slug}-720.webp 720w, ` +
+    `/gallery-webp/${slug}.webp ${width}w`
+  );
+}
 ---
 
 <section id="gallery" class="gallery-section" aria-label="Gallery" tabindex="-1">
@@ -25,7 +35,8 @@ const rest = shown.filter((g) => !g.featured);
           >
             <picture>
               <source
-                srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`}
+                srcset={srcset(g.file, g.width)}
+                sizes="(max-width: 639px) 92vw, 520px"
                 type="image/webp"
               />
               <img
@@ -54,7 +65,8 @@ const rest = shown.filter((g) => !g.featured);
           >
             <picture>
               <source
-                srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`}
+                srcset={srcset(g.file, g.width)}
+                sizes="(max-width: 479px) 92vw, (max-width: 639px) 46vw, (max-width: 999px) 30vw, 260px"
                 type="image/webp"
               />
               <img
@@ -71,12 +83,9 @@ const rest = shown.filter((g) => !g.featured);
         </figure>
       ))}
     </div>
-    <div class="btn-row gallery-cta">
-      <a class="btn btn-call" href={PHONE_TEL}>
-        Call&nbsp;{PHONE_DISPLAY}
-      </a>
+    <div class="cta-links">
+      <a href={PHONE_TEL}>Call&nbsp;{PHONE_DISPLAY}</a>
       <a
-        class="btn btn-wa"
         href={waLink("Hi Jay Painters, I saw your past work. I need painting in ____.")}
         target="_blank"
         rel="noopener"

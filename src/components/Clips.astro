@@ -4,7 +4,6 @@ import { CLIPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
 
 <section id="clips" aria-label="Videos" tabindex="-1">
   <div class="wrap">
-    <p class="section-kicker">On the job</p>
     <h2>Watch the work happen</h2>
     <div class="clips">
       {CLIPS.map((c) => (
@@ -26,12 +25,9 @@ import { CLIPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
         </figure>
       ))}
     </div>
-    <div class="btn-row clips-cta">
-      <a class="btn btn-call" href={PHONE_TEL}>
-        Call&nbsp;{PHONE_DISPLAY}
-      </a>
+    <div class="cta-links">
+      <a href={PHONE_TEL}>Call&nbsp;{PHONE_DISPLAY}</a>
       <a
-        class="btn btn-wa"
         href={waLink("Hi Jay Painters, I saw the ceiling clip. I need a repaint in ____.")}
         target="_blank"
         rel="noopener"

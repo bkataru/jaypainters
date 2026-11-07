@@ -56,16 +56,16 @@ try:
         fail("could not find GALLERY block in site.ts")
     else:
         files = re.findall(r'file: "([^"]+)"', m.group(1))
-    missing = [
-        f
-        for f in files
-        if not os.path.isfile(os.path.join(DIST, "gallery", f))
-        or not os.path.isfile(os.path.join(DIST, "gallery-webp", f.replace(".jpg", ".webp")))
-    ]
+    missing = []
+    for f in files:
+        slug = f.replace(".jpg", "")
+        for webp in [slug + ".webp"] + [f"{slug}-{w}.webp" for w in (320, 480, 720)]:
+            if not os.path.isfile(os.path.join(DIST, "gallery", f)) or not os.path.isfile(os.path.join(DIST, "gallery-webp", webp)):
+                missing.append(webp)
     if missing:
         fail(f"gallery entries missing a format: {', '.join(missing)}")
     else:
-        print(f"gallery formats OK ({len(files)} entries x jpg+webp)")
+        print(f"gallery formats OK ({len(files)} entries x jpg + 4 webp rungs)")
 except OSError:
     fail("could not read src/data/site.ts")
 

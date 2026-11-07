@@ -55,8 +55,8 @@
   --color-card: #fff;
   --color-muted: #fdf4f0;
   --color-muted-foreground: #475569;
-  --color-border: #f3d8c8;
-  --color-border-strong: #e7c3ad;
+  --color-border: #c08050;
+  --color-border-strong: #a86a44;
   --color-ring: #1d4ed8;
   --color-wa: #1f7a34;
   --color-wa-dark: #166534;
@@ -368,6 +368,24 @@ section {
   border-radius: 10px;
 }
 
+/* Demoted mid-page CTAs: text links, not pills. Pills stay scarce so the
+   Hero and Contact pairs keep their salience. */
+.cta-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 28px;
+}
+
+.cta-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-primary-dark);
+}
+
 /* Header */
 .site-header {
   position: sticky;
@@ -404,7 +422,7 @@ section {
   display: block;
   width: 72px;
   height: 6px;
-  border-radius: 3px;
+  border-radius: 10px;
   background: linear-gradient(
     90deg,
     var(--color-primary) 0 55%,
@@ -429,7 +447,7 @@ section {
   font-size: 15px;
   font-weight: 500;
   padding: 0 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: background-color var(--transition);
 }
 
@@ -456,6 +474,10 @@ section {
 @media (width <= 639px) {
   :root {
     --header-h: 77px;
+  }
+
+  .site-header {
+    position: static;
   }
 
   .site-header .wrap {
@@ -560,31 +582,12 @@ section {
   box-shadow: var(--shadow-card);
 }
 
-/* Single full-width photo on phones: the tall collage crops the hero
-   portrait to a sliver below 640px, so small tiles hide there. */
+/* Single hero photo at every width: the two small tiles duplicated the
+   gallery and cost dead markup, so the collage is one image. */
 .hero-collage {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
-}
-
-.hero-photo-small {
-  display: none;
-}
-
-@media (width >= 640px) {
-  .hero-collage {
-    grid-template-columns: 1.4fr 1fr;
-    grid-template-rows: repeat(2, minmax(0, 265px));
-  }
-
-  .hero-photo-small {
-    display: block;
-  }
-
-  .hero-collage .hero-photo:first-child {
-    grid-row: span 2;
-  }
 }
 
 .hero-photo {
@@ -604,10 +607,6 @@ section {
   object-fit: cover;
   border-radius: 20px;
   box-shadow: var(--shadow-lift);
-}
-
-.hero-collage .hero-photo-small img {
-  border-radius: 14px;
 }
 
 .hero-photo figcaption {
@@ -686,7 +685,7 @@ section {
 .service-icon {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -705,12 +704,12 @@ section {
 }
 
 .service-group h3 {
+  font-size: 21px;
   margin-bottom: 4px;
 }
 
 .typical {
-  font-size: 14px;
-  font-style: italic;
+  font-size: 15px;
   color: var(--color-muted-foreground);
   margin-bottom: 12px;
 }
@@ -738,7 +737,7 @@ section {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--color-secondary);
+  background: var(--color-primary-dark);
 }
 
 /* Gallery */
@@ -751,7 +750,7 @@ section {
 .gallery-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 16px;
 }
 
 @media (width >= 480px) {
@@ -775,8 +774,8 @@ section {
 .gallery-feature {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
-  margin-bottom: 14px;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 @media (width >= 640px) {
@@ -843,7 +842,8 @@ section {
 
 .gallery-cta,
 .clips-cta,
-.services-cta {
+.services-cta,
+.steps-cta {
   margin-top: 28px;
 }
 
@@ -851,7 +851,9 @@ section {
 .clips {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 @media (width >= 640px) {
@@ -892,6 +894,7 @@ section {
 
 .contact-section h2 {
   color: #fff;
+  font-size: clamp(30px, 5vw, 46px);
 }
 
 .contact-section .section-kicker {
@@ -905,7 +908,7 @@ section {
 .contact-card {
   background: var(--color-inverse-card);
   border: 1px solid var(--color-inverse-border);
-  border-radius: 16px;
+  border-radius: var(--radius);
   padding: clamp(24px, 4vw, 36px);
 }
 
@@ -928,10 +931,6 @@ section {
 
 .pin-icon {
   vertical-align: -3px;
-}
-
-.contact-card .small {
-  color: var(--color-inverse-small);
 }
 
 /* Footer */
@@ -957,8 +956,10 @@ section {
   font-size: 14px;
 }
 
-.site-footer nav a:hover {
-  color: var(--color-primary);
+@media (hover: hover) and (pointer: fine) {
+  .site-footer nav a:hover {
+    color: var(--color-primary);
+  }
 }
 
 /* Sticky bar */
@@ -971,7 +972,7 @@ section {
   display: flex;
   gap: 10px;
   background: rgb(15 23 42 / 0.98);
-  border-radius: 16px;
+  border-radius: var(--radius);
   padding: 10px;
   box-shadow: 0 8px 32px rgb(15 23 42 / 0.35);
 }
