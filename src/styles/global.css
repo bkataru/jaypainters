@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Outfit";
+  font-family: Outfit;
   font-style: normal;
   font-weight: 400 800;
   font-display: swap;
@@ -18,24 +18,24 @@
 
 :root {
   --color-primary: #ea580c;
-  --color-on-primary: #ffffff;
+  --color-on-primary: #fff;
   --color-secondary: #f97316;
   --color-accent: #2563eb;
-  --color-on-accent: #ffffff;
+  --color-on-accent: #fff;
   --color-background: #fff7ed;
   --color-foreground: #0f172a;
-  --color-card: #ffffff;
+  --color-card: #fff;
   --color-card-foreground: #0f172a;
   --color-muted: #fdf4f0;
   --color-muted-foreground: #475569;
   --color-border: #fceae1;
   --color-ring: #ea580c;
   --color-wa: #1f7a34;
-  --font-display: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-body: "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Outfit", system-ui, -apple-system, "Segoe UI", roboto, arial, sans-serif;
+  --font-body: "Work Sans", system-ui, -apple-system, "Segoe UI", roboto, arial, sans-serif;
   --radius: 12px;
-  --shadow-card: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.07);
-  --shadow-lift: 0 2px 4px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.1);
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 0.06), 0 4px 16px rgb(15 23 42 / 0.07);
+  --shadow-lift: 0 2px 4px rgb(15 23 42 / 0.08), 0 8px 24px rgb(15 23 42 / 0.1);
   --transition: 200ms ease;
 }
 
@@ -55,6 +55,7 @@ html {
   *,
   *::before,
   *::after {
+    /* stylelint-disable-next-line declaration-no-important -- reduced-motion override must beat component transitions */
     transition-duration: 0.01ms !important;
   }
 }
@@ -119,7 +120,7 @@ video:focus-visible {
   border-radius: 6px;
 }
 
-@media (max-width: 399px) {
+@media (width <= 399px) {
   .hero-stats {
     gap: 16px 24px;
   }
@@ -163,7 +164,7 @@ section {
   gap: 12px;
 }
 
-@media (min-width: 760px) {
+@media (width >= 760px) {
   .trust-list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -221,7 +222,7 @@ section {
   gap: 16px;
 }
 
-@media (min-width: 760px) {
+@media (width >= 760px) {
   .steps {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -306,7 +307,10 @@ section {
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
 }
 
 .btn svg {
@@ -318,25 +322,25 @@ section {
 .btn-call {
   background: var(--color-primary);
   color: var(--color-on-primary);
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  box-shadow: 0 4px 14px rgb(234 88 12 / 0.35);
 }
 
 .btn-call:hover {
   background: #c2410c;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
+  box-shadow: 0 6px 20px rgb(234 88 12 / 0.4);
 }
 
 .btn-wa {
   background: var(--color-wa);
-  color: #ffffff;
-  box-shadow: 0 4px 14px rgba(31, 122, 52, 0.3);
+  color: #fff;
+  box-shadow: 0 4px 14px rgb(31 122 52 / 0.3);
 }
 
 .btn-wa:hover {
   background: #166534;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(31, 122, 52, 0.35);
+  box-shadow: 0 6px 20px rgb(31 122 52 / 0.35);
 }
 
 .btn-card {
@@ -350,7 +354,7 @@ section {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(255, 247, 237, 0.92);
+  background: rgb(255 247 237 / 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -363,7 +367,7 @@ section {
   min-height: 64px;
 }
 
-@media (max-width: 639px) {
+@media (width <= 639px) {
   .site-header .wrap {
     flex-wrap: wrap;
     padding-top: 8px;
@@ -371,7 +375,7 @@ section {
   }
 
   .site-nav a {
-    padding: 8px 8px;
+    padding: 8px;
     font-size: 14px;
   }
 
@@ -395,22 +399,30 @@ section {
   height: 6px;
   margin-top: 2px;
   border-radius: 3px;
-  background: linear-gradient(90deg, var(--color-primary) 0 55%, var(--color-secondary) 55% 80%, var(--color-wa) 80% 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0 55%,
+    var(--color-secondary) 55% 80%,
+    var(--color-wa) 80% 100%
+  );
 }
 
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--color-foreground);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  padding: 10px 12px;
+  padding: 0 12px;
   border-radius: 8px;
   transition: background var(--transition);
 }
@@ -434,8 +446,8 @@ section {
 .hero {
   padding: 48px 0 56px;
   background:
-    radial-gradient(600px 300px at 85% -40px, rgba(249, 115, 22, 0.14), transparent 70%),
-    radial-gradient(500px 280px at 5% 20%, rgba(37, 99, 235, 0.07), transparent 70%);
+    radial-gradient(600px 300px at 85% -40px, rgb(249 115 22 / 0.14), transparent 70%),
+    radial-gradient(500px 280px at 5% 20%, rgb(37 99 235 / 0.07), transparent 70%);
 }
 
 .hero-grid {
@@ -445,7 +457,7 @@ section {
   align-items: center;
 }
 
-@media (min-width: 820px) {
+@media (width >= 820px) {
   .hero-grid {
     grid-template-columns: 1.05fr 0.95fr;
   }
@@ -519,7 +531,7 @@ section {
   position: absolute;
   left: 16px;
   bottom: 16px;
-  background: rgba(15, 23, 42, 0.82);
+  background: rgb(15 23 42 / 0.82);
   color: #fff;
   font-size: 14px;
   font-weight: 500;
@@ -534,13 +546,13 @@ section {
   gap: 16px;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .service-groups {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: 1000px) {
+@media (width >= 1000px) {
   .service-groups {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -557,7 +569,9 @@ section {
   border-radius: var(--radius);
   padding: 24px;
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
   display: flex;
   flex-direction: column;
 }
@@ -638,13 +652,13 @@ section {
   gap: 14px;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .gallery-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
-@media (min-width: 1000px) {
+@media (width >= 1000px) {
   .gallery-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -656,7 +670,9 @@ section {
   overflow: hidden;
   background: var(--color-muted);
   box-shadow: var(--shadow-card);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .gallery-grid figure:hover {
@@ -706,7 +722,7 @@ section {
   gap: 20px;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .clips {
     grid-template-columns: 1fr 1fr;
   }
@@ -749,7 +765,7 @@ section {
   gap: 24px;
 }
 
-@media (min-width: 760px) {
+@media (width >= 760px) {
   .about-card {
     grid-template-columns: 1.2fr 0.8fr;
   }
@@ -800,8 +816,8 @@ section {
 }
 
 .contact-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.12);
   border-radius: 16px;
   padding: clamp(24px, 4vw, 36px);
 }
@@ -812,6 +828,10 @@ section {
 
 .contact-card a[href^="http"] {
   color: #93c5fd;
+}
+
+.pin-icon {
+  vertical-align: -3px;
 }
 
 .contact-card .small {
@@ -828,11 +848,14 @@ section {
 .site-footer nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 16px;
+  gap: 8px 16px;
   margin: 8px 0;
 }
 
 .site-footer nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
   color: var(--color-muted-foreground);
   text-decoration: none;
   font-size: 14px;
@@ -851,11 +874,11 @@ section {
   z-index: 10;
   display: flex;
   gap: 10px;
-  background: rgba(15, 23, 42, 0.94);
+  background: rgb(15 23 42 / 0.94);
   backdrop-filter: blur(8px);
   border-radius: 16px;
   padding: 10px;
-  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.35);
+  box-shadow: 0 8px 32px rgb(15 23 42 / 0.35);
 }
 
 .sticky-bar a {
@@ -888,7 +911,7 @@ section {
   color: #fff;
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .sticky-bar {
     display: none;
   }

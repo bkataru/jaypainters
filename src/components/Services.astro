@@ -14,26 +14,28 @@ const ICONS = [
   <div class="wrap">
     <p class="section-kicker">What we do</p>
     <h2>Services</h2>
-    <p class="section-lead">Five groups, one crew. Tap any group to start a WhatsApp chat about that job.</p>
+    <p class="section-lead">
+      Five groups, one crew. Tap any group to start a WhatsApp chat about that job.
+    </p>
     <div class="service-groups">
-      {
-        SERVICE_GROUPS.map((g, i) => (
-          <div class="service-group">
-            <div class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d={ICONS[i]} /></svg>
-            </div>
-            <h3>{g.title}</h3>
-            <ul>
-              {g.items.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-            <a class="btn btn-wa btn-card" href={waLink(g.prefill)}>
-              WhatsApp about {g.title.toLowerCase()}
-            </a>
+      {SERVICE_GROUPS.map((g, i) => (
+        <div class="service-group">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d={ICONS[i]} />
+            </svg>
           </div>
-        ))
-      }
+          <h3>{g.title}</h3>
+          <ul>
+            {g.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <a class="btn btn-wa btn-card" href={waLink(g.prefill)}>
+            WhatsApp about {g.title.toLowerCase()}
+          </a>
+        </div>
+      ))}
     </div>
     <p class="brand-line">{BRAND_FALLBACK}.</p>
   </div>

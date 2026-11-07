@@ -13,7 +13,9 @@ import StickyBar from "../components/StickyBar.astro";
 ---
 
 <Base>
-  <Fragment slot="header"><Header /></Fragment>
+  <Fragment slot="header">
+    <Header />
+  </Fragment>
   <Fragment slot="main">
     <Hero />
     <Steps />
@@ -23,6 +25,10 @@ import StickyBar from "../components/StickyBar.astro";
     <About />
     <Contact />
   </Fragment>
-  <Fragment slot="footer"><Footer /></Fragment>
-  <Fragment slot="bar"><StickyBar /></Fragment>
+  <Fragment slot="footer">
+    <Footer />
+  </Fragment>
+  <Fragment slot="bar">
+    <StickyBar />
+  </Fragment>
 </Base>

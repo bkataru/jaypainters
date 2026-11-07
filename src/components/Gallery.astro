@@ -6,28 +6,32 @@ import { GALLERY } from "../data/site";
   <div class="wrap">
     <p class="section-kicker">Proof of work</p>
     <h2>Past work</h2>
-    <p class="section-lead">Real sites across Bangalore — finished exteriors, interiors, and crews at work. Tap a photo to open it full size.</p>
+    <p class="section-lead">
+      Real sites across Bangalore — finished exteriors, interiors, and crews at work. Tap a photo to
+      open it full size.
+    </p>
     <div class="gallery-grid">
-      {
-        GALLERY.map((g, i) => (
-          <figure>
-            <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
-              <picture>
-                <source srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`} type="image/webp" />
-                <img
-                  src={`/gallery/${g.file}`}
-                  alt={g.caption}
-                  width={g.width}
-                  height={g.height}
-                  loading={i === 0 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-              </picture>
-            </a>
-            <figcaption>{g.caption}</figcaption>
-          </figure>
-        ))
-      }
+      {GALLERY.map((g, i) => (
+        <figure>
+          <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
+            <picture>
+              <source
+                srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`}
+                type="image/webp"
+              />
+              <img
+                src={`/gallery/${g.file}`}
+                alt={g.caption}
+                width={g.width}
+                height={g.height}
+                loading={i === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </picture>
+          </a>
+          <figcaption>{g.caption}</figcaption>
+        </figure>
+      ))}
     </div>
   </div>
 </section>

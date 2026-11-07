@@ -1,7 +1,7 @@
 // Single content data file. Every fact and label lives here; components
 // import from here and never hard-code phone, hours, or addresses.
 
-export const PHONE_DISPLAY = "+91 97316 70742";
+export const PHONE_DISPLAY = "+91 97316 70742";
 export const PHONE_TEL = "tel:+919731670742";
 export const WA_BASE = "https://wa.me/919731670742?text=";
 
@@ -68,22 +68,92 @@ export interface GalleryEntry {
 }
 
 export const GALLERY: GalleryEntry[] = [
-  { file: "hero-finished-exterior.jpg", caption: "Finished exterior, Bangalore", width: 750, height: 1000 },
-  { file: "local-interior-texture-01.jpg", caption: "Painter on site, terrace", width: 864, height: 1152 },
-  { file: "local-interior-room-01.jpg", caption: "Painter on site, terrace", width: 864, height: 1152 },
-  { file: "local-decorative-finish-01.jpg", caption: "Decorative wall finish", width: 864, height: 1152 },
-  { file: "local-interior-room-02.jpg", caption: "Interior room painting", width: 864, height: 1152 },
-  { file: "local-exterior-building-01.jpg", caption: "Exterior building painting", width: 864, height: 1152 },
-  { file: "local-exterior-detail-01.jpg", caption: "Exterior detail work", width: 864, height: 1152 },
-  { file: "local-crew-exterior-01.jpg", caption: "Crew painting exterior", width: 750, height: 1000 },
+  {
+    file: "hero-finished-exterior.jpg",
+    caption: "Finished exterior, Bangalore",
+    width: 750,
+    height: 1000,
+  },
+  {
+    file: "local-interior-texture-01.jpg",
+    caption: "Painter on site, terrace",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "local-interior-room-01.jpg",
+    caption: "Painter on site, terrace",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "local-decorative-finish-01.jpg",
+    caption: "Decorative wall finish",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "local-interior-room-02.jpg",
+    caption: "Interior room painting",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "local-exterior-building-01.jpg",
+    caption: "Exterior building painting",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "local-exterior-detail-01.jpg",
+    caption: "Exterior detail work",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "local-crew-exterior-01.jpg",
+    caption: "Crew painting exterior",
+    width: 750,
+    height: 1000,
+  },
   { file: "local-wood-polish-01.jpg", caption: "Wood polish work", width: 864, height: 1152 },
-  { file: "local-interior-ceiling-01.jpg", caption: "Interior ceiling painting", width: 864, height: 1152 },
+  {
+    file: "local-interior-ceiling-01.jpg",
+    caption: "Interior ceiling painting",
+    width: 864,
+    height: 1152,
+  },
   { file: "local-wall-finish-01.jpg", caption: "Wall finish work", width: 864, height: 1152 },
-  { file: "local-exterior-house-01.jpg", caption: "House exterior painting", width: 864, height: 1152 },
-  { file: "jd-finished-apartments-01.jpg", caption: "Finished apartments, exterior", width: 900, height: 1200 },
-  { file: "jd-white-building-01.jpg", caption: "White building exterior", width: 900, height: 1200 },
-  { file: "jd-yellow-exterior-01.jpg", caption: "Yellow exterior finish", width: 750, height: 1000 },
-  { file: "jd-commercial-scaffold-01.jpg", caption: "Commercial block, scaffold work", width: 900, height: 1200 },
+  {
+    file: "local-exterior-house-01.jpg",
+    caption: "House exterior painting",
+    width: 864,
+    height: 1152,
+  },
+  {
+    file: "jd-finished-apartments-01.jpg",
+    caption: "Finished apartments, exterior",
+    width: 900,
+    height: 1200,
+  },
+  {
+    file: "jd-white-building-01.jpg",
+    caption: "White building exterior",
+    width: 900,
+    height: 1200,
+  },
+  {
+    file: "jd-yellow-exterior-01.jpg",
+    caption: "Yellow exterior finish",
+    width: 750,
+    height: 1000,
+  },
+  {
+    file: "jd-commercial-scaffold-01.jpg",
+    caption: "Commercial block, scaffold work",
+    width: 900,
+    height: 1200,
+  },
   { file: "jd-materials-01.jpg", caption: "Paints and tools on site", width: 900, height: 1200 },
 ];
 

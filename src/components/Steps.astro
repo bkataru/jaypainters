@@ -26,19 +26,23 @@ const STEPS = [
     <h2>Three steps to a finished job</h2>
     <p class="section-lead">No forms, no waiting on email. One call starts it.</p>
     <ol class="steps">
-      {
-        STEPS.map((s) => (
-          <li>
-            <span class="step-num" aria-hidden="true">{s.n}</span>
-            <h3>{s.title}</h3>
-            <p>{s.body}</p>
-          </li>
-        ))
-      }
+      {STEPS.map((s) => (
+        <li>
+          <span class="step-num" aria-hidden="true">
+            {s.n}
+          </span>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </li>
+      ))}
     </ol>
     <div class="btn-row steps-cta">
-      <a class="btn btn-call" href={PHONE_TEL}>Call {PHONE_DISPLAY}</a>
-      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I would like a site visit.")}>WhatsApp for a visit</a>
+      <a class="btn btn-call" href={PHONE_TEL}>
+        Call&nbsp;{PHONE_DISPLAY}
+      </a>
+      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I would like a site visit.")}>
+        WhatsApp for a visit
+      </a>
     </div>
   </div>
 </section>

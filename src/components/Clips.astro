@@ -6,23 +6,24 @@ import { CLIPS } from "../data/site";
   <div class="wrap">
     <p class="section-kicker">On the job</p>
     <h2>At work</h2>
-    <p class="section-lead">Short clips from real sites — a crew painting a ceiling, and Anthony masking wood frames for polish work.</p>
+    <p class="section-lead">
+      Short clips from real sites — a crew painting a ceiling, and Anthony masking wood frames for
+      polish work.
+    </p>
     <div class="clips">
-      {
-        CLIPS.map((c) => (
-          <figure>
-            <video
-              controls
-              muted
-              playsinline
-              preload="none"
-              poster={`/posters/${c.poster}`}
-              src={`/video/${c.file}`}
-            />
-            <figcaption>{c.caption}</figcaption>
-          </figure>
-        ))
-      }
+      {CLIPS.map((c) => (
+        <figure>
+          <video
+            controls
+            muted
+            playsinline
+            preload="none"
+            poster={`/posters/${c.poster}`}
+            src={`/video/${c.file}`}
+          />
+          <figcaption>{c.caption}</figcaption>
+        </figure>
+      ))}
     </div>
   </div>
 </section>
