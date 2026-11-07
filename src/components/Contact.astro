@@ -3,8 +3,7 @@ import {
   ADDRESS,
   LANDMARK,
   HOURS_SHORT,
-  HOURS_LONG,
-  HOURS_LABEL,
+  HOURS_NOTE,
   MAP_URL,
   OWNER,
   SINCE_YEAR,
@@ -25,12 +24,10 @@ const PIN_PATH =
   <div class="wrap">
     <p class="section-kicker">Get in touch</p>
     <h2>Call or WhatsApp today</h2>
-    <p class="section-lead">
-      Tell us the area and the job. The owner picks up and follows through himself.
-    </p>
+    <p class="section-lead">The owner picks up and follows through himself.</p>
     <div class="contact-card">
       <p class="contact-owner">
-        Run by {OWNER} since {SINCE_YEAR} — he manages the crews and works on site himself.
+        Run by {OWNER} since {SINCE_YEAR}. He manages the crews and works on site himself.
       </p>
       <p>
         <svg
@@ -51,7 +48,7 @@ const PIN_PATH =
       </p>
       <p>{LANDMARK}</p>
       <p>
-        Hours: {HOURS_SHORT} ({HOURS_LONG}). {HOURS_LABEL}.
+        Hours: {HOURS_SHORT}. {HOURS_NOTE}.
       </p>
       <p>
         <a href={MAP_URL} rel="noopener">

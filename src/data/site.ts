@@ -16,7 +16,7 @@ export const OWNER = "Anthony Jayasheelan";
 export const SINCE_YEAR = 1980;
 export const ADDRESS =
   "#21, Gauthamapuram, Near Football Ground, R H A Penchine Line, Ulsoor, Bangalore-560008, Karnataka";
-export const LANDMARK = "Near Football Ground, Ulsoor — ask for Jay Painters";
+export const LANDMARK = "Near Football Ground, Ulsoor. Ask for Jay Painters";
 export const LAT = 12.972696;
 export const LNG = 77.626606;
 export const MAP_URL =
@@ -39,31 +39,31 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     title: "Home interiors",
     items: ["Living room", "Bedroom", "Putty", "Wall", "Window", "White wash"],
-    typical: "Example: repainting a lived-in flat, room by room",
+    typical: "A lived-in flat, repainted room by room",
     prefill: "Hi Jay Painters, I need interior painting.",
   },
   {
     title: "Outside and waterproof",
     items: ["Exterior walls", "Terrace and leakage painting"],
-    typical: "Example: house exterior plus terrace touch-up",
+    typical: "A house exterior plus a terrace touch-up",
     prefill: "Hi Jay Painters, I need exterior or waterproof painting.",
   },
   {
     title: "Decorative",
     items: ["3D", "Texture", "Deco finishes", "Spray", "Statue"],
-    typical: "Example: a single feature wall with a new finish",
+    typical: "One feature wall with a new finish",
     prefill: "Hi Jay Painters, I need decorative painting.",
   },
   {
     title: "Wood and polish",
     items: ["Doors", "Furniture", "Polish"],
-    typical: "Example: doors and frames brought back to shine",
+    typical: "Doors and frames brought back to shine",
     prefill: "Hi Jay Painters, I need wood polish work.",
   },
   {
     title: "Buildings and workplaces",
     items: ["Apartments", "Buildings", "Malls", "Offices"],
-    typical: "Example: a crew assigned to one building or floor",
+    typical: "A crew assigned to one building or floor",
     prefill: "Hi Jay Painters, I need painting for a building.",
   },
 ];
