@@ -1,0 +1,6 @@
+node_modules/
+dist/
+assets/originals/
+WhatsApp*
+.DS_Store
+Thumbs.db
