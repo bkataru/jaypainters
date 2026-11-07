@@ -131,62 +131,6 @@ section {
   scroll-margin-top: 76px;
 }
 
-/* Trust strip */
-.trust-strip {
-  padding: 0 0 8px;
-}
-
-.trust-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-
-@media (width >= 760px) {
-  .trust-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.trust-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 16px;
-  box-shadow: var(--shadow-card);
-}
-
-.trust-list svg {
-  width: 22px;
-  height: 22px;
-  flex: none;
-  margin-top: 2px;
-  stroke: var(--color-primary);
-  fill: none;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.trust-list strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--color-foreground);
-}
-
-.trust-list span {
-  font-size: 14px;
-  color: var(--color-muted-foreground);
-}
-
 /* How it works */
 .steps-section {
   background: var(--color-card);
@@ -486,40 +430,76 @@ section {
   max-width: 520px;
 }
 
-.hero-stats {
+.hero-meta {
+  margin-bottom: 4px;
+}
+
+.hero-cred {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.hero-cred strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.hero-chips {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid var(--color-border);
+  gap: 8px;
 }
 
-.hero-stat b {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--color-foreground);
+.hero-chips li {
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 5px 14px;
+  box-shadow: var(--shadow-card);
 }
 
-.hero-stat span {
-  font-size: 14px;
-  color: var(--color-muted-foreground);
+.hero-collage {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.hero-collage .hero-photo:first-child {
+  grid-row: span 2;
 }
 
 .hero-photo {
   margin: 0;
   position: relative;
+  min-height: 0;
+}
+
+.hero-photo picture,
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-photo img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: var(--shadow-lift);
+}
+
+.hero-collage .hero-photo-small img {
+  border-radius: 14px;
 }
 
 .hero-photo figcaption {
@@ -598,7 +578,14 @@ section {
 }
 
 .service-group h3 {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.typical {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-muted-foreground);
+  margin-bottom: 12px;
 }
 
 .service-group ul {
@@ -659,6 +646,14 @@ section {
   }
 }
 
+.gallery-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.gallery-feature figure,
 .gallery-grid figure {
   margin: 0;
   border-radius: var(--radius);
@@ -670,26 +665,31 @@ section {
     box-shadow var(--transition);
 }
 
+.gallery-feature figure:hover,
 .gallery-grid figure:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lift);
 }
 
+.gallery-feature .tile,
 .gallery-grid .tile {
   display: block;
   overflow: hidden;
   cursor: zoom-in;
 }
 
+.gallery-feature .tile picture,
 .gallery-grid .tile picture {
   display: block;
 }
 
+.gallery-feature .tile:focus-visible,
 .gallery-grid .tile:focus-visible {
   outline: 3px solid var(--color-ring);
   outline-offset: 2px;
 }
 
+.gallery-feature img,
 .gallery-grid img {
   width: 100%;
   height: auto;
@@ -699,15 +699,27 @@ section {
   transition: transform 300ms ease;
 }
 
+.gallery-feature figure:hover img,
 .gallery-grid figure:hover img {
   transform: scale(1.04);
 }
 
+.gallery-feature figcaption,
 .gallery-grid figcaption {
   font-size: 13px;
   font-weight: 500;
   color: var(--color-muted-foreground);
   padding: 10px 12px 12px;
+}
+
+.gallery-feature figcaption {
+  font-size: 14px;
+  padding: 12px 16px 14px;
+}
+
+.gallery-cta,
+.clips-cta {
+  margin-top: 28px;
 }
 
 /* Clips */
@@ -748,48 +760,32 @@ section {
   padding: 12px 16px 14px;
 }
 
-/* About */
-.about-card {
+/* Service areas */
+.area-strip {
+  padding: 40px 0;
+}
+
+.area-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.area-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.area-list li {
+  font-size: 14px;
+  font-weight: 600;
   background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: clamp(24px, 4vw, 40px);
-  box-shadow: var(--shadow-card);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (width >= 760px) {
-  .about-card {
-    grid-template-columns: 1.2fr 0.8fr;
-  }
-}
-
-.about-facts {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 12px;
-  align-content: start;
-}
-
-.about-facts li {
-  background: var(--color-muted);
-  border-radius: 10px;
-  padding: 12px 16px;
-  font-size: 15px;
-}
-
-.about-facts b {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 2px;
+  border-radius: 999px;
+  padding: 6px 16px;
 }
 
 /* Contact */
@@ -815,6 +811,11 @@ section {
   border: 1px solid rgb(255 255 255 / 0.12);
   border-radius: 16px;
   padding: clamp(24px, 4vw, 36px);
+}
+
+.contact-owner {
+  font-weight: 600;
+  color: #fff;
 }
 
 .contact-card p {
@@ -919,12 +920,13 @@ section {
 /* Extra-narrow phones: base rules above are overridden here, so this
    block must stay last in the file. */
 @media (width <= 399px) {
-  .hero-stats {
-    gap: 16px 24px;
+  .hero-chips {
+    gap: 6px;
   }
 
-  .hero-stat b {
-    font-size: 22px;
+  .hero-collage {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
 
   .btn {

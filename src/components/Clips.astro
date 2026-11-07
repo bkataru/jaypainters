@@ -1,5 +1,5 @@
 ---
-import { CLIPS } from "../data/site";
+import { CLIPS, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
 ---
 
 <section id="clips" aria-label="Work clips">
@@ -24,6 +24,14 @@ import { CLIPS } from "../data/site";
           <figcaption>{c.caption}</figcaption>
         </figure>
       ))}
+    </div>
+    <div class="btn-row clips-cta">
+      <a class="btn btn-call" href={PHONE_TEL}>
+        Call&nbsp;{PHONE_DISPLAY}
+      </a>
+      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I want this quality on my job.")}>
+        WhatsApp for this quality
+      </a>
     </div>
   </div>
 </section>

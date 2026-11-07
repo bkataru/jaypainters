@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { HEAD_TITLE, THEME_COLOR } from "../data/site";
+import { HEAD_TITLE, THEME_COLOR, ADDRESS, LAT, LNG, HOURS_SHORT, SINCE_YEAR } from "../data/site";
 
 interface Props {
   title?: string;
@@ -9,6 +9,25 @@ interface Props {
 const { title = HEAD_TITLE } = Astro.props;
 const description =
   "Jay Painters — house and building painters in Ulsoor, Bangalore since 1980. Call or WhatsApp for interior, exterior, decorative, wood polish and commercial painting.";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HousePainter",
+  name: "Jay Painters",
+  description,
+  url: "https://jaypainters.surge.sh/",
+  telephone: "+91 97316 70742",
+  foundingDate: String(SINCE_YEAR),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: ADDRESS,
+    addressLocality: "Bangalore",
+    postalCode: "560008",
+    addressCountry: "IN",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: LAT, longitude: LNG },
+  openingHours: `Mo-Su ${HOURS_SHORT}`,
+  areaServed: ["Ulsoor", "Bangalore", "Chennai", "Hyderabad"],
+};
 ---
 
 <!doctype html>
@@ -37,6 +56,7 @@ const description =
       type="font/woff2"
       crossorigin
     />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   </head>
   <body>
     <slot name="header" />

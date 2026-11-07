@@ -1,0 +1,24 @@
+---
+const AREAS = [
+  "Ulsoor",
+  "Indiranagar",
+  "Domlur",
+  "Koramangala",
+  "Richmond Town",
+  "Frazer Town",
+  "Cox Town",
+  "Bangalore-wide",
+];
+---
+
+<section class="area-strip" aria-label="Service areas">
+  <div class="wrap">
+    <h2 class="area-title">Where we work</h2>
+    <ul class="area-list">
+      {AREAS.map((a) => (
+        <li>{a}</li>
+      ))}
+    </ul>
+    <p class="small">Chennai, Hyderabad, and other cities on request — crews travel for the job.</p>
+  </div>
+</section>

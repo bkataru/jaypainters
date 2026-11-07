@@ -29,6 +29,7 @@ export const THEME_COLOR = "#fff7ed";
 export interface ServiceGroup {
   title: string;
   items: string[];
+  typical: string;
   prefill: string;
 }
 
@@ -36,26 +37,31 @@ export const SERVICE_GROUPS: ServiceGroup[] = [
   {
     title: "Home interiors",
     items: ["Living room", "Bedroom", "Putty", "Wall", "Window", "White wash"],
+    typical: "Example: repainting a lived-in flat, room by room",
     prefill: "Hi Jay Painters, I need interior painting.",
   },
   {
     title: "Outside and waterproof",
     items: ["Exterior walls", "Terrace and leakage painting"],
+    typical: "Example: house exterior plus terrace touch-up",
     prefill: "Hi Jay Painters, I need exterior or waterproof painting.",
   },
   {
     title: "Decorative",
     items: ["3D", "Texture", "Deco finishes", "Spray", "Statue"],
+    typical: "Example: a single feature wall with a new finish",
     prefill: "Hi Jay Painters, I need decorative painting.",
   },
   {
     title: "Wood and polish",
     items: ["Doors", "Furniture", "Polish"],
+    typical: "Example: doors and frames brought back to shine",
     prefill: "Hi Jay Painters, I need wood polish work.",
   },
   {
     title: "Buildings and workplaces",
     items: ["Apartments", "Buildings", "Malls", "Offices"],
+    typical: "Example: a crew assigned to one building or floor",
     prefill: "Hi Jay Painters, I need painting for a building.",
   },
 ];
@@ -76,13 +82,13 @@ export const GALLERY: GalleryEntry[] = [
   },
   {
     file: "local-interior-texture-01.jpg",
-    caption: "Painter on site, terrace",
+    caption: "Terrace crew at work",
     width: 864,
     height: 1152,
   },
   {
     file: "local-interior-room-01.jpg",
-    caption: "Painter on site, terrace",
+    caption: "Terrace repaint in progress",
     width: 864,
     height: 1152,
   },

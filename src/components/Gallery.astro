@@ -1,5 +1,7 @@
 ---
-import { GALLERY } from "../data/site";
+import { GALLERY, PHONE_TEL, PHONE_DISPLAY, waLink } from "../data/site";
+
+const [first, second, ...rest] = GALLERY;
 ---
 
 <section id="gallery" class="gallery-section" aria-label="Gallery">
@@ -10,8 +12,8 @@ import { GALLERY } from "../data/site";
       Real sites across Bangalore — finished exteriors, interiors, and crews at work. Tap a photo to
       open it full size.
     </p>
-    <div class="gallery-grid">
-      {GALLERY.map((g, i) => (
+    <div class="gallery-feature">
+      {[first, second].map((g) => (
         <figure>
           <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
             <picture>
@@ -24,7 +26,7 @@ import { GALLERY } from "../data/site";
                 alt={g.caption}
                 width={g.width}
                 height={g.height}
-                loading={i === 0 ? "eager" : "lazy"}
+                loading="lazy"
                 decoding="async"
               />
             </picture>
@@ -32,6 +34,40 @@ import { GALLERY } from "../data/site";
           <figcaption>{g.caption}</figcaption>
         </figure>
       ))}
+    </div>
+    <div class="gallery-grid">
+      {rest.map((g) => (
+        <figure>
+          <a class="tile" href={`/gallery/${g.file}`} aria-label={`Open larger view: ${g.caption}`}>
+            <picture>
+              <source
+                srcset={`/gallery-webp/${g.file.replace(".jpg", ".webp")}`}
+                type="image/webp"
+              />
+              <img
+                src={`/gallery/${g.file}`}
+                alt={g.caption}
+                width={g.width}
+                height={g.height}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </a>
+          <figcaption>{g.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="btn-row gallery-cta">
+      <a class="btn btn-call" href={PHONE_TEL}>
+        Call&nbsp;{PHONE_DISPLAY}
+      </a>
+      <a
+        class="btn btn-wa"
+        href={waLink("Hi Jay Painters, I saw your past work and need painting.")}
+      >
+        WhatsApp about a job like these
+      </a>
     </div>
   </div>
 </section>
