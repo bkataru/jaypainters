@@ -1,0 +1,44 @@
+---
+import { PHONE_DISPLAY, PHONE_TEL, waLink } from "../data/site";
+
+const STEPS = [
+  {
+    n: "1",
+    title: "Call or WhatsApp",
+    body: "Tell us the area and the job. Photos help but are not needed.",
+  },
+  {
+    n: "2",
+    title: "Site visit",
+    body: "Anthony visits, checks the surfaces, and gives one clear price.",
+  },
+  {
+    n: "3",
+    title: "Crew arrives",
+    body: "A team is assigned, the owner works on site, and you check the finish.",
+  },
+];
+---
+
+<section class="steps-section" aria-label="How it works">
+  <div class="wrap">
+    <p class="section-kicker">How it works</p>
+    <h2>Three steps to a finished job</h2>
+    <p class="section-lead">No forms, no waiting on email. One call starts it.</p>
+    <ol class="steps">
+      {
+        STEPS.map((s) => (
+          <li>
+            <span class="step-num" aria-hidden="true">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="btn-row steps-cta">
+      <a class="btn btn-call" href={PHONE_TEL}>Call {PHONE_DISPLAY}</a>
+      <a class="btn btn-wa" href={waLink("Hi Jay Painters, I would like a site visit.")}>WhatsApp for a visit</a>
+    </div>
+  </div>
+</section>
