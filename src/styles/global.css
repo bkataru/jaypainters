@@ -180,6 +180,11 @@ a:not(.btn):focus-visible,
   border-radius: 6px;
 }
 
+.contact-section :focus-visible,
+.sticky-bar :focus-visible {
+  outline-color: var(--color-inverse-link);
+}
+
 .skip {
   position: absolute;
   left: 12px;
