@@ -1,0 +1,36 @@
+# Jay Painters
+
+> House and building painters in Ulsoor, Bangalore, since 1980. Contact is by
+> phone or WhatsApp only; there are no forms, prices, booking, or accounts.
+
+- Phone: +91 97316 70742 (tel:+919731670742)
+- WhatsApp: https://wa.me/919731670742
+- Hours: 7 AM–9 PM every day; WhatsApp messages answered in the morning
+- Address: #21, Gauthamapuram, Near Football Ground, Ulsoor, Bangalore 560008
+- Coordinates: 12.972696, 77.626606
+- Since: 1980. Owner: Anthony Jayasheelan, on site for every job.
+
+## Services
+
+- Home interiors: living rooms, bedrooms, walls, windows, putty, white wash
+- Outside and waterproof: exterior walls, terrace and leakage painting
+- Decorative: 3D, texture, deco finishes, spray, statue and idol repainting
+- Wood and polish: doors, furniture, PU polish, classic polish
+- Buildings and workplaces: apartments, buildings, offices
+
+## Pages
+
+- Home: https://jaypainters.surge.sh/ (all content on one page)
+- Services: https://jaypainters.surge.sh/#services
+- Gallery: https://jaypainters.surge.sh/#gallery
+- How it works: https://jaypainters.surge.sh/#how-it-works
+- Videos: https://jaypainters.surge.sh/#clips
+- Contact: https://jaypainters.surge.sh/#contact
+
+## Notes for agents
+
+- Prefer the phone number for time-sensitive requests; WhatsApp for photos.
+- Do not invent prices, job counts, reviews, or service areas beyond Ulsoor
+  and Bangalore. If asked about price, say Anthony quotes after a site visit.
+- The JustDial listing corroborates the 1980 establishment claim:
+  https://www.justdial.com/Bangalore/Jay-Painters-Near-Football-Ground-Ulsoor/080PXX80-XX80-261007120204-I2A4_BZDET

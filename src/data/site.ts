@@ -7,7 +7,6 @@ export const PHONE_E164 = "+919731670742";
 export const WA_BASE = "https://wa.me/919731670742?text=";
 
 export const HOURS_SHORT = "7 AM–9 PM";
-export const HOURS_SCHEMA = "Mo-Su 07:00-21:00";
 export const HOURS_NOTE = "WhatsApp anytime; replies 7 AM–9 PM";
 export const HERO_HOURS = "Open 7 AM–9 PM, every day · WhatsApp anytime";
 
