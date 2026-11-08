@@ -85,6 +85,19 @@ value, rebuild, redeploy. Captions must describe what is visible in the photo.
   JSON-LD url, and og:image), `public/CNAME`, `public/robots.txt` (Sitemap
   line), `public/sitemap.xml` (`loc`), and this file.
 
+## Indexing status (2026-11-08 decision: stay on surge.sh)
+
+Surge force-serves `User-agent: * Disallow: /` on all `*.surge.sh`
+subdomains (sintaxi/surge#288, platform policy). Our `public/robots.txt`
+ships in `dist/` but crawlers never see it, so the site is currently
+de-indexed from Google/Bing/AI search. Discovery runs through the
+JustDial listing + WhatsApp until a custom domain is bought.
+`sitemap.xml` and `llms.txt` DO serve correctly and activate fully the
+day a custom domain points here. To enable indexing: buy a domain,
+`surge ./dist <domain>`, point DNS at Surge, update `astro.config.mjs`
+`site`, `CNAME`, `robots.txt` Sitemap line, `sitemap.xml` loc,
+`llms.txt` URLs, and this file.
+
 ## Surge quotas
 
 Free-tier limits checked on first deploy; record numbers and date here.
